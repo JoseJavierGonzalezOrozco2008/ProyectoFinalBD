@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, Alert, TextInput, Modal, Button } from 'react-native';
 import { Input  } from 'react-native-elements';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const LoginForm = () => {
@@ -38,7 +39,27 @@ function validarVacio(){
     //Alert.alert("Rellene los campos")
     setModalVisible3(true)
   }else{
-    console.log(user,passw)
+    fetch('url',{
+      method: 'POST',
+      headers:{
+        'Accept': 'application/json',
+        'Content-type':'application/json'
+      },
+      body: JSON.stringify({
+        cuenta: user,
+        contra: passw,
+      })
+    })
+    .then((respuesta) => respuesta.json())
+    .then((responseJson) =>{
+      Alert.alert(responseJson);
+
+      AsyncStorage.setItem('token','86');
+      
+    })
+    .catch((error) =>{
+      console.log(error);
+    })
   }
 }
   
@@ -47,6 +68,7 @@ function validarVacio(){
       <Modal animationType='slide' visible={modalVisible1}>
           <View style={styles.modal}>
             <Text style={styles.modalText}>¡Ingrese el nombre de usuario!</Text>
+            <Image source={require("../../assets/cow.png")}  resizeMode='contain' style={styles.Image}/>
             <Button title="Entendido" onPress = {() => {  
                   setModalVisible1(false)}}/> 
           </View>
@@ -54,13 +76,16 @@ function validarVacio(){
       <Modal animationType='slide' visible={modalVisible2}>
           <View style={styles.modal}>
             <Text style={styles.modalText}>¡Ingrese la contraseña!</Text>
+            <Image source={require("../../assets/cow.png")}  resizeMode='contain' style={styles.Image}/>
             <Button title="Entendido" onPress = {() => {  
                   setModalVisible2(false)}}/> 
           </View>
       </Modal>
       <Modal animationType='slide' visible={modalVisible3}>
           <View style={styles.modal}>
+            
             <Text style={styles.modalText}>¡Rellene los campos!</Text>
+            <Image source={require("../../assets/cow.png")}  resizeMode='contain' style={styles.Image}/>
             <Button title="Entendido" onPress = {() => {  
                   setModalVisible3(false)}}/> 
           </View>
@@ -104,52 +129,59 @@ function validarVacio(){
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 30,
-
-    },
-    input: {
-        width: '100%',
-        
-    },
-    icon: {
-      color: '#c1c1c1'
-    },
-    btn: {
+  container: {
+      flex: 1,
       alignItems: 'center',
-      backgroundColor: '#442484',
-      padding: 10,
-      width: '80%',
-      marginTop:40
-    },
-    
-    text: {
-      fontFamily: 'Arial',
-      fontSize: 20,
-      color: 'white'
-    },
-    modal: {
       justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#00BCD4',
-      height: 300,
-      width: '80%',
-      borderRadius: 10,
-      borderWidth: 1,
-      borderColor: '#fff',
-      marginTop: 200,
-      marginLeft: 40,
-    },
-    modalText: {
-      color: '#3f2949',
-      marginTop: 10
-    }
+      marginTop: 30,
+
+  },
+  input: {
+      width: '100%',
+      
+  },
+  icon: {
+    color: '#c1c1c1'
+  },
+  btn: {
+    alignItems: 'center',
+    backgroundColor: '#442484',
+    padding: 10,
+    width: '80%',
+    marginTop:40
+  },
+  
+  text: {
+    fontFamily: 'Arial',
+    fontSize: 20,
+    color: 'white'
+  },
+  modal: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#B8B8B8',
+    height: 300,
+    width: '80%',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff',
+    marginTop: 200,
+    marginLeft: 40,
+  },
+  modalText: {
+    color: 'black',
+    marginTop: 10,
+    marginBottom: 20,
+    fontSize: 25
+  },
+  Image: {
+    height: 130,
+    width: '100%',
+    marginBottom: 20,
+    marginTop: 20
+  },
 
 })
-
 export default LoginForm
 
 
