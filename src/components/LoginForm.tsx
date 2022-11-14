@@ -53,7 +53,7 @@ function validarVacio(){
     .then((respuesta) => respuesta.json())
     .then((responseJson) =>{
       Alert.alert(responseJson);
-
+      
       AsyncStorage.setItem('token','86');
       
     })
@@ -91,30 +91,23 @@ function validarVacio(){
           </View>
       </Modal>
         <Input
-          style={styles.input}
-          placeholder='Usuario'
-          onChangeText={(user) => saveUser({user})}
-       />
+        style={styles.input}
+        placeholder='Usuario'
+        onChangeText={(user) => saveUser({ user })} autoCompleteType={undefined}       />
         <Input
-          placeholder='Contraseña'
-          style={styles.input}
-          secureTextEntry={!showPassword}
-          onChangeText={(pass) => savePass({pass})}
-          rightIcon={
-            <TouchableOpacity onPress={() => setshowPassword(!showPassword)}>
+        placeholder='Contraseña'
+        style={styles.input}
+        secureTextEntry={!showPassword}
+        onChangeText={(pass) => savePass({ pass })}
+        rightIcon={<TouchableOpacity onPress={() => setshowPassword(!showPassword)}>
 
-              <Image 
-                source={ showPassword ? require('../../assets/ojo1.jpg') : require('../../assets/ojo.jpg')} style={{
-                  width:30,
-                  height:30
-                }}
-                />
+          <Image
+            source={showPassword ? require('../../assets/ojo1.jpg') : require('../../assets/ojo.jpg')} style={{
+              width: 30,
+              height: 30
+            }} />
 
-            </TouchableOpacity> 
-     
-            
-          }
-        >
+        </TouchableOpacity>} autoCompleteType={undefined}        >
            
         </Input>
           
