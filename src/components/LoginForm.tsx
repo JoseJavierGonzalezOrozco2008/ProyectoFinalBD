@@ -3,8 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity, Alert, TextInput, Moda
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import  { Input }   from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
-import { getPuestoPer, getUser, Usuario } from '../screens/Personal_Screen';
-
+import { getNamePer, getPuestoPer, Usuario } from '../screens/Personal_Screen';
 
 
 
@@ -66,7 +65,7 @@ function validarVacio(){
           getPuestoPer(puestoP)
           AsyncStorage.setItem('nombre',JSON.stringify(responseJson.nombre));
           const nombre = await AsyncStorage.getItem('nombre')
-          getUser(nombre)
+          getNamePer(nombre)
           navigation.navigate('Personal' as never);
           setUser('')
           setPassw('')
@@ -77,31 +76,28 @@ function validarVacio(){
           getPuestoPer(puestoP)
           AsyncStorage.setItem('nombre',JSON.stringify(responseJson.nombre));
           const nombre = await AsyncStorage.getItem('nombre')
-          getUser(nombre)
+          getNamePer(nombre)
           navigation.navigate('Admin' as never);
           setUser('')
           setPassw('')        }
       }else if(!responseJson.ok){
-        setUser('')
-        setPassw('')
         ret = responseJson.msg;
         setModalVisible4(true);
       }
     })
     .catch(async (error) =>{
-      /*AsyncStorage.setItem('nombre',JSON.stringify(user));
-      const nombre = await AsyncStorage.getItem('nombre')
-      console.log(nombre)
+      /*AsyncStorage.setItem('user',JSON.stringify(user));
+      const value = await AsyncStorage.getItem('user')
+      console.log(value)
       AsyncStorage.setItem('puesto',JSON.stringify(passw));
-      const puestoP = await AsyncStorage.getItem('puesto')
-      getUser(nombre)
-      console.log(nombre," en Login")
-      getPuestoPer(puestoP)
+      const test = await AsyncStorage.getItem('puesto')
+      getUser(value)
+      console.log(test," en Login")
+      getPuestoPer(test)
       navigation.navigate('Personal' as never);
       setUser('')
       setPassw('')*/
-      setUser('')
-      setPassw('')
+
       console.log(error);
     })
   }
