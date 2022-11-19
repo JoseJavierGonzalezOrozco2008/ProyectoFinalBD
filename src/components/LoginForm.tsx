@@ -83,6 +83,8 @@ function validarVacio(){
       }else if(!responseJson.ok){
         ret = responseJson.msg;
         setModalVisible4(true);
+        setUser('')
+        setPassw('')
       }
     })
     .catch(async (error) =>{
