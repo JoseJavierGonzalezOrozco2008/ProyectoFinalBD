@@ -123,7 +123,7 @@ const AppTab = () => {
   );
 };
 
-export function getUser(nombre: any){
+export function getNamePer(nombre: any){
   let obj:MyObj= JSON.parse(nombre)
   res = obj.nombre
   console.log(res,' desde Personal_Screen')
