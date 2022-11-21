@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import  { Input }   from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { getNamePer, getPuestoPer, Usuario } from '../screens/Personal_Screen';
+import { getNameAdm, getPuestoAdm } from '../screens/Admin_Screen';
 
 
 
@@ -73,10 +74,10 @@ function validarVacio(){
           //Necesito otra Screen
           AsyncStorage.setItem('puesto', JSON.stringify(responseJson.puesto))
           const puestoP= await AsyncStorage.getItem('puesto')
-          getPuestoPer(puestoP)
+          getPuestoAdm(puestoP)
           AsyncStorage.setItem('nombre',JSON.stringify(responseJson.nombre));
           const nombre = await AsyncStorage.getItem('nombre')
-          getNamePer(nombre)
+          getNameAdm(nombre)
           navigation.navigate('Admin' as never);
           setUser('')
           setPassw('')        }
@@ -99,7 +100,6 @@ function validarVacio(){
       navigation.navigate('Personal' as never);
       setUser('')
       setPassw('')*/
-
       console.log(error);
     })
   }
