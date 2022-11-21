@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import Routes from './src/screens/Personal_Screen';
+import Routes1 from './src/screens/Admin_Screen';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ const App = () => {
             }}>
                 <Stack.Screen name='Login' component={Login}/>
                 <Stack.Screen name='Personal' component={Routes}/> 
+                <Stack.Screen name='Admin' component={Routes1}/> 
             </Stack.Navigator>
         </NavigationContainer>
 
