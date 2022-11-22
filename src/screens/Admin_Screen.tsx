@@ -41,9 +41,11 @@ const Tab = createBottomTabNavigator();
 
 
 const Registros = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress = {() => navigation.navigate('RegProv' as never)}>
        <Image source={require('../../assets/secciones/RegProveedor.jpg')} style={styles.image} />
       </TouchableOpacity>
       <Text> </Text>
@@ -126,7 +128,7 @@ const AppTab = () => {
 export function getNameAdm(nombre: any){
   let obj:MyObj= JSON.parse(nombre)
   res = obj.nombre
-  console.log(res,' desde Admin_Screen')
+  console.log(res,' desde Personal_Screen')
 
 }
 
@@ -134,7 +136,7 @@ export function getPuestoAdm(puestoAd:any){
   console.log("valor al momento de entrar a la funcion ",puestoAd)
   let ps:MyObj1 = JSON.parse(puestoAd)
   resPuesto = ps.puesto
-  console.log(resPuesto, ' desde Admin Screen')
+  console.log(resPuesto, ' desde Personal Screen')
 }
 
 
