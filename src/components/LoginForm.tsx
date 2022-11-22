@@ -9,13 +9,12 @@ import { getNameAdm, getPuestoAdm } from '../screens/Admin_Screen';
 
 
 const LoginForm = () => {
-
   const [showPassword, setshowPassword] = useState(false)
 
-const [modalVisible1, setModalVisible1] = useState(false);
-const [modalVisible2, setModalVisible2] = useState(false);
-const [modalVisible3, setModalVisible3] = useState(false);
-const [modalVisible4, setModalVisible4] = useState(false);let ret: string = "";
+  const [modalVisible1, setModalVisible1] = useState(false);
+  const [modalVisible2, setModalVisible2] = useState(false);
+  const [modalVisible3, setModalVisible3] = useState(false);
+  const [modalVisible4, setModalVisible4] = useState(false);let ret: string = "";
 
   const [user, setUser] = useState("")
   const [passw, setPassw] = useState("")
@@ -94,13 +93,19 @@ function validarVacio(){
       console.log(value)
       AsyncStorage.setItem('puesto',JSON.stringify(passw));
       const test = await AsyncStorage.getItem('puesto')
-      getUser(value)
+      getNamePer(value)
       console.log(test," en Login")
       getPuestoPer(test)
       navigation.navigate('Personal' as never);
       setUser('')
       setPassw('')*/
-      console.log(error);
+
+      /*console.log(error);
+      navigation.navigate('Admin' as never)
+      setUser('')
+      setPassw('')*/
+
+      console.log(error)
     })
   }
 }
