@@ -18,13 +18,7 @@ interface RoutesProps {}
 
 const Stack = createStackNavigator();
 
-let calle1: string = '';
-let numero: string = '';
-let colonia: string = '';
-let cp: number = 0;
-let muni: string = '';
-let estado: string = '';
-let pais: string = '';
+
 
 const RegProv2 = () => {
 
@@ -398,6 +392,8 @@ const RegistrarProveedor_Screen = () => {
                     console.log(error)
 
                     navigation.navigate('regProvs2' as never)*/
+
+                    console.log(error)
                })
               
         }else{
