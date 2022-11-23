@@ -17,6 +17,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 interface RoutesProps {}
 
 const Stack = createStackNavigator();
+const ip = '172.16.115.112:3000';
 
 let id_direccion:number = 0;
 
@@ -150,7 +151,7 @@ const RegCliente = () => {
                 setModalVisible3(true)
             }else{
                 
-                fetch('url',{
+                fetch(`http://${ip}/clientes/create-cliente`,{
                     method: 'POST',
                     headers:{
                         'Accept': 'application/json',
@@ -165,6 +166,7 @@ const RegCliente = () => {
                 })
                 .then((respuesta) => respuesta.json())
                 .then(responseJson =>{
+                        console.log(responseJson);                      
                         if(responseJson.ok){
                             console.log('Validado')
                             navigation.navigate('Admin' as never)
@@ -337,13 +339,14 @@ const RegistrarCliente_Screen = () => {
         setModalVisible1(true)
     }else{
         if(!isNaN(cpf)){
-            fetch('url',{
+            fetch(`http://${ip}/direcciones/create-direccion`,{
                 method: 'POST',
                 headers:{
                   'Accept': 'application/json',
                   'Content-type':'application/json'
                 },
                 body: JSON.stringify({
+                    
                     Calle: calle,
                     Numero: numero,
                     Colonia: colonia,
@@ -356,7 +359,7 @@ const RegistrarCliente_Screen = () => {
               .then((respuesta) => respuesta.json())
               .then(responseJson =>{
                   if(responseJson.ok){
-                    id_direccion = responseJson.id_Direccion;
+                    id_direccion = responseJson.id;
                     navigation.navigate('regClient' as never)
                   }else{
                     setModalVisible3(true)

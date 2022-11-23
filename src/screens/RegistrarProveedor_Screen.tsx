@@ -17,7 +17,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 interface RoutesProps {}
 
 const Stack = createStackNavigator();
-
+let id: String;
 
 
 const RegProv2 = () => {
@@ -169,13 +169,14 @@ const RegProv2 = () => {
                 setModalVisible3(true)
             }else{
                 
-                fetch('url',{
+                fetch('http://172.16.115.112:3000/proveedores/create-proveedor',{
                     method: 'POST',
                     headers:{
                         'Accept': 'application/json',
                         'Content-type':'application/json'
                     },
                     body: JSON.stringify({
+                        id_Direccion: id,
                         RazonSocial: razonS,
                         Telefono: telefono,
                         Correo: correo,
@@ -184,6 +185,7 @@ const RegProv2 = () => {
                 })
                 .then((respuesta) => respuesta.json())
                 .then(responseJson =>{
+                        console.log(responseJson);
                         if(responseJson.ok){
                             console.log('Validado')
                             navigation.navigate('Admin' as never)
@@ -356,7 +358,7 @@ const RegistrarProveedor_Screen = () => {
         setModalVisible1(true)
     }else{
         if(!isNaN(cpf)){
-            fetch('url',{
+            fetch('http://172.16.115.112:3000/direcciones/create-direccion',{
                 method: 'POST',
                 headers:{
                   'Accept': 'application/json',
@@ -374,6 +376,8 @@ const RegistrarProveedor_Screen = () => {
               })
               .then((respuesta) => respuesta.json())
               .then(responseJson =>{
+                  console.log(responseJson);
+                  id = responseJson.id;
                   if(responseJson.ok){
                     navigation.navigate('regProvs2' as never)
                   }else{
@@ -407,6 +411,7 @@ const RegistrarProveedor_Screen = () => {
             setPais('')
             setModalVisible2(true)
         }
+        console.log("If primero");
     }
   }
   function saveCalle(calle: string) {
