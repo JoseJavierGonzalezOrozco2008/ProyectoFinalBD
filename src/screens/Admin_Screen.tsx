@@ -119,6 +119,23 @@ const Existencias = () => {
   );
 };
 
+const Eliminar = () => {
+  const navigation = useNavigation();
+
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ElimAct' as never)}>
+        <Image
+          source={require('../../assets/secciones/ElimAct.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
+
+    </View>
+  );
+
+};
 interface HomeProps {}
 export const Usuario = ({}: HomeProps) => {
   const navigation = useNavigation();
@@ -169,6 +186,13 @@ const AppTab = () => {
                 style={styles.icon}
               />
             );
+          }  else if(route.name === 'Eliminar'){
+            return (
+              <Image
+                source={require('../../assets/Iconos/IconoElim.jpg')}
+                style={styles.icon}
+              />
+            );
           }
         },
         headerShown: false,
@@ -178,6 +202,8 @@ const AppTab = () => {
       <Tab.Screen name="Usuario" component={Usuario} />
       <Tab.Screen name="Registros" component={Registros} />
       <Tab.Screen name="Existencias" component={Existencias} />
+      <Tab.Screen name="Eliminar" component={Eliminar} />
+
     </Tab.Navigator>
   );
 };
