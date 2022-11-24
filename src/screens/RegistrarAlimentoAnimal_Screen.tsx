@@ -19,6 +19,9 @@ interface RoutesProps {}
 const Stack = createStackNavigator();
 
 
+const ip = '172.16.115.112:3000';
+
+
 const RegistrarAlimentoAnimal_Screen = () => {
     const navigation = useNavigation();
 
@@ -162,7 +165,7 @@ const RegistrarAlimentoAnimal_Screen = () => {
         setModalVisible1(true)
     }else{
         if(!isNaN(cantidadf)){
-            fetch('url',{
+            fetch(`http://${ip}/alimentoAnimal/create-alimentoAnimal`,{
                 method: 'POST',
                 headers:{
                   'Accept': 'application/json',
