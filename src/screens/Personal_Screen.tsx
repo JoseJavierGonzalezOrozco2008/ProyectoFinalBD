@@ -124,16 +124,16 @@ const AppTab = () => {
 };
 
 export function getNamePer(nombre: any){
-  let obj:MyObj= JSON.parse(nombre)
-  res = obj.nombre
+  //let obj:MyObj= JSON.parse(nombre)
+  res = nombre
   console.log(res,' desde Personal_Screen')
 
 }
 
 export function getPuestoPer(puestoP:any){
-  console.log("valor al momento de entrar a la funcion ",puestoP)
-  let ps:MyObj1 = JSON.parse(puestoP)
-  resPuesto = ps.puesto
+  //console.log("valor al momento de entrar a la funcion ",puestoP)
+  //let ps:MyObj1 = JSON.parse(puestoP)
+  resPuesto = puestoP
   console.log(resPuesto, ' desde Personal Screen')
 }
 
