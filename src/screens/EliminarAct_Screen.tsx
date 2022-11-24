@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     },
     btn: {
       alignItems: 'center',
-      backgroundColor: 'green',
+      backgroundColor: 'red',
       padding: 10,
       width: '100%',
       marginTop: 40,
