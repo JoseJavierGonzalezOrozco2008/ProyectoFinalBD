@@ -7,6 +7,8 @@ import { getNamePer, getPuestoPer, Usuario } from '../screens/Personal_Screen';
 import { getNameAdm, getPuestoAdm } from '../screens/Admin_Screen';
 
 
+const ip = '172.16.115.112:3000';
+
 
 const LoginForm = () => {
   const [showPassword, setshowPassword] = useState(false)
@@ -44,7 +46,7 @@ function validarVacio(){
     //Alert.alert("Rellene los campos")
     setModalVisible3(true)
   }else{
-    fetch('http://172.16.115.112:3000/scripts/validar-usuario',{
+    fetch(`http://${ip}/scripts/validar-usuario`,{
       method: 'POST',
       headers:{
         'Accept': 'application/json',
@@ -60,12 +62,12 @@ function validarVacio(){
       console.log(responseJson.nombre);
       if(responseJson.ok){
         if(responseJson.puesto === 'Personal'){
-          AsyncStorage.setItem('puesto', JSON.stringify(responseJson.puesto))
-          const puestoP= JSON.stringify(responseJson.puesto);
-          getPuestoPer(puestoP)
-          AsyncStorage.setItem('nombre',JSON.stringify(responseJson.nombre));
-          const nombre = JSON.stringify(responseJson.nombre);
-          getNamePer(nombre)
+          //AsyncStorage.setItem('puesto', JSON.stringify(responseJson.puesto))
+          //const puestoP= JSON.stringify(responseJson.puesto);
+          getPuestoPer(responseJson.puesto)
+          //AsyncStorage.setItem('nombre',JSON.stringify(responseJson.nombre));
+          //const nombre = JSON.stringify(responseJson.nombre);
+          getNamePer(responseJson.nombre)
           navigation.navigate('Personal' as never);
           setUser('')
           setPassw('')
