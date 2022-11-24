@@ -10,6 +10,7 @@ import ClientInic from './src/screens/RegistrarClientes_Screen';
 import AlimAnimInic from './src/screens/RegistrarAlimentoAnimal_Screen';
 import MatPrimInic from './src/screens/RegistrarMatPrim';
 import ElimAct_Screen from './src/screens/EliminarAct_Screen';
+import ElimDireccion_Screen from './src/screens/EliminarDireccion_Screen';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ const App = () => {
                 <Stack.Screen name='RegAlimAnim' component={AlimAnimInic}/> 
                 <Stack.Screen name='RegMatPrim' component={MatPrimInic}/> 
                 <Stack.Screen name='ElimAct' component={ElimAct_Screen}/> 
+                <Stack.Screen name='ElimDir' component={ElimDireccion_Screen}/> 
 
 
             </Stack.Navigator>
