@@ -132,6 +132,14 @@ const Eliminar = () => {
       </TouchableOpacity>
       <Text> </Text>
 
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ElimDir' as never)}>
+        <Image
+          source={require('../../assets/secciones/ElimDireccion.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
+
     </View>
   );
 
