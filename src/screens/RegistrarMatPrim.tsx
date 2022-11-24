@@ -18,6 +18,8 @@ interface RoutesProps {}
 
 const Stack = createStackNavigator();
 
+const ip = '172.16.115.112:3000';
+
 
 const RegistrarMateriaPrima_Screen = () => {
     const navigation = useNavigation();
@@ -160,7 +162,7 @@ const RegistrarMateriaPrima_Screen = () => {
         setModalVisible1(true)
     }else{
         if(!isNaN(cantidadf)){
-            fetch('url',{
+            fetch(`http://${ip}/materiaPrima/save-materiaPrima`,{
                 method: 'POST',
                 headers:{
                   'Accept': 'application/json',
