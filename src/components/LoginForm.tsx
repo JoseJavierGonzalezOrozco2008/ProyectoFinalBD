@@ -62,12 +62,12 @@ function validarVacio(){
       console.log(responseJson.nombre);
       if(responseJson.ok){
         if(responseJson.puesto === 'Personal'){
-          //AsyncStorage.setItem('puesto', JSON.stringify(responseJson.puesto))
-          //const puestoP= JSON.stringify(responseJson.puesto);
-          getPuestoPer(responseJson.puesto)
-          //AsyncStorage.setItem('nombre',JSON.stringify(responseJson.nombre));
-          //const nombre = JSON.stringify(responseJson.nombre);
-          getNamePer(responseJson.nombre)
+          AsyncStorage.setItem('puesto', JSON.stringify(responseJson.puesto))
+          const puestoP= JSON.stringify(responseJson.puesto);
+          getPuestoPer(puestoP)
+          AsyncStorage.setItem('nombre',JSON.stringify(responseJson.nombre));
+          const nombre = JSON.stringify(responseJson.nombre);
+          getNamePer(nombre)
           navigation.navigate('Personal' as never);
           setUser('')
           setPassw('')
