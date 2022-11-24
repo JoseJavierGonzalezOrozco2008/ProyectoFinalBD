@@ -86,6 +86,17 @@ const Registros = () => {
         </TouchableOpacity>
         <Text> </Text>
  
+        <TouchableOpacity style={styles.button3} onPress={() => navigation.navigate('RegAlimVenta' as never)}>
+          <Image
+            source={require('../../assets/secciones/RegAlimentoVenta.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+         <Text> </Text>
+         <Text> </Text>
+         <Text> </Text>
+         <Text> </Text>
+         <Text> </Text>
       </View>
     </ScrollView>
   );
