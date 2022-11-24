@@ -18,6 +18,10 @@ interface RoutesProps {}
 
 const Stack = createStackNavigator();
 
+
+const ip = '172.16.115.112:3000';
+
+
 const ElimAct_Screen = () => {
 
     const navigation = useNavigation();
@@ -85,7 +89,7 @@ const ElimAct_Screen = () => {
             </Modal>
             <Modal animationType="slide" visible={modalVisible4}>
                 <View style={styles.modal2}>
-                  <Text style={styles.modalText}>¡Registro Completado Exitosamente!</Text>
+                  <Text style={styles.modalText}>¡Registro Eliminado Exitosamente!</Text>
                   <Image
                     source={require('../../assets/pig.jpg')}
                     resizeMode="contain"
@@ -128,16 +132,8 @@ const ElimAct_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idAlif) && idAlif != 0){
-                fetch('htpp://192.168.8.6/delete-activity/:id',{
-                    method: 'POST',
-                    headers:{
-                      'Accept': 'application/json',
-                      'Content-type':'application/json'
-                    },
-                    body: JSON.stringify({
-                        id: idAlif,
-    
-                    })
+                fetch(`http://${ip}/delete-activity/id:` + idAlif,{
+                    method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())
                   .then(responseJson =>{
