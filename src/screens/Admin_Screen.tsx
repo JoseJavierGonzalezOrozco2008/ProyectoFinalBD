@@ -64,39 +64,56 @@ const Registros = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
-        <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('RegCli' as never)}>
+        <TouchableOpacity
+          style={styles.button2}
+          onPress={() => navigation.navigate('RegCli' as never)}>
           <Image
             source={require('../../assets/secciones/RegCliente.jpg')}
             style={styles.image}
           />
         </TouchableOpacity>
         <Text> </Text>
-        <TouchableOpacity style={styles.button3} onPress={() => navigation.navigate('RegAlimAnim' as never)}>
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('RegAlimAnim' as never)}>
           <Image
             source={require('../../assets/secciones/RegAlimento.jpg')}
             style={styles.image}
           />
         </TouchableOpacity>
-         <Text> </Text>
-        <TouchableOpacity style={styles.button3} onPress={() => navigation.navigate('RegMatPrim' as never)}>
+        <Text> </Text>
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('RegMatPrim' as never)}>
           <Image
             source={require('../../assets/secciones/RegMateriaPrima.jpg')}
             style={styles.image}
           />
         </TouchableOpacity>
         <Text> </Text>
- 
-        <TouchableOpacity style={styles.button3} onPress={() => navigation.navigate('RegAlimVenta' as never)}>
+
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('RegAlimVenta' as never)}>
           <Image
             source={require('../../assets/secciones/RegAlimentoVenta.jpg')}
             style={styles.image}
           />
         </TouchableOpacity>
-         <Text> </Text>
-         <Text> </Text>
-         <Text> </Text>
-         <Text> </Text>
-         <Text> </Text>
+        <Text> </Text>
+
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('RegActividad' as never)}>
+          <Image
+            source={require('../../assets/secciones/RegActividad.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+        <Text> </Text>
+        <Text> </Text>
+        <Text> </Text>
       </View>
     </ScrollView>
   );
@@ -134,26 +151,126 @@ const Eliminar = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ElimAct' as never)}>
-        <Image
-          source={require('../../assets/secciones/ElimAct.jpg')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
-      <Text> </Text>
+    <ScrollView style={styles.scroll}>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimAct' as never)}>
+          <Image
+            source={require('../../assets/secciones/ElimAct.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ElimDir' as never)}>
-        <Image
-          source={require('../../assets/secciones/ElimDireccion.jpg')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
-      <Text> </Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimDir' as never)}>
+          <Image
+            source={require('../../assets/secciones/ElimDireccion.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
 
-    </View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimMatP' as never)}>
+          <Image
+            source={require('../../assets/secciones/EliminarMateriaP.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimAlimVen' as never)}>
+          <Image
+            source={require('../../assets/secciones/ElimAlimVen.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimCompra' as never)}>
+          <Image
+            source={require('../../assets/secciones/ElimCompra.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimCliente' as never)}>
+          <Image
+            source={require('../../assets/secciones/ElimCliente.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimAnimal' as never)}>
+          <Image
+            source={require('../../assets/secciones/ElimAnimal.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimPersonal' as never)}>
+          <Image
+            source={require('../../assets/secciones/ElimPersonal.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimProveedor' as never)}>
+          <Image
+            source={require('../../assets/secciones/ElimProveedor.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimTipoAnim' as never)}>
+          <Image
+            source={require('../../assets/secciones/ElimTipoAnimal.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ElimVenta' as never)}>
+          <Image
+            source={require('../../assets/secciones/ElimVenta.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+        <Text> </Text>
+        <Text> </Text>
+        <Text> </Text>
+      </View>
+    </ScrollView>
   );
-
 };
 interface HomeProps {}
 export const Usuario = ({}: HomeProps) => {
@@ -205,7 +322,7 @@ const AppTab = () => {
                 style={styles.icon}
               />
             );
-          }  else if(route.name === 'Eliminar'){
+          } else if (route.name === 'Eliminar') {
             return (
               <Image
                 source={require('../../assets/Iconos/IconoElim.jpg')}
@@ -222,7 +339,6 @@ const AppTab = () => {
       <Tab.Screen name="Registros" component={Registros} />
       <Tab.Screen name="Existencias" component={Existencias} />
       <Tab.Screen name="Eliminar" component={Eliminar} />
-
     </Tab.Navigator>
   );
 };
@@ -326,8 +442,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   scroll: {
-    paddingTop: 40
-  }
+    paddingTop: 40,
+  },
 });
 
 export default Routes1;

@@ -46,7 +46,7 @@ function validarVacio(){
     //Alert.alert("Rellene los campos")
     setModalVisible3(true)
   }else{
-    fetch(`http://${ip}/scripts/validar-usuario`,{
+    fetch(/*`http://${ip}/scripts/validar-usuario`*/'url',{
       method: 'POST',
       headers:{
         'Accept': 'application/json',
