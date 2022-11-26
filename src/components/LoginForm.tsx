@@ -7,7 +7,7 @@ import { getNamePer, getPuestoPer, Usuario } from '../screens/Personal_Screen';
 import { getNameAdm, getPuestoAdm } from '../screens/Admin_Screen';
 
 
-const ip = '172.16.115.112:3000';
+const ip = '192.168.8.5:3000';
 
 
 const LoginForm = () => {

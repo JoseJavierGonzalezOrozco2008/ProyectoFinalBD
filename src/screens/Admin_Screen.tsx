@@ -140,6 +140,9 @@ const Registros = () => {
 };
 
 const Existencias = () => {
+
+  const navigation = useNavigation();
+
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <TouchableOpacity style={styles.button}>
@@ -159,6 +162,14 @@ const Existencias = () => {
       <TouchableOpacity style={styles.button3}>
         <Image
           source={require('../../assets/secciones/ConsActivi.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
+
+      <TouchableOpacity style={styles.button3} onPress={() => navigation.navigate('ConsTipoAnimal' as never)}>
+        <Image
+          source={require('../../assets/secciones/ConsTipoAnimal.jpg')}
           style={styles.image}
         />
       </TouchableOpacity>

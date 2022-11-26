@@ -24,6 +24,7 @@ import ElimVenta_Screen from './src/screens/EliminarVenta_Screen';
 import RegistrarActividad_Screen from './src/screens/RegistrarActividad_Screen';
 import PersonalInic from './src/screens/RegistrarPersonal_Screen';
 import CompraInic from './src/screens/RegistrarCompra_Screen';
+import ConsTipAnimInic from './src/screens/ConsultarTipoAnimal_Screen';
 
 const Stack = createStackNavigator();
 
@@ -57,6 +58,7 @@ const App = () => {
                 <Stack.Screen name='RegActividad' component={RegistrarActividad_Screen}/> 
                 <Stack.Screen name='RegPersonal' component={PersonalInic}/> 
                 <Stack.Screen name='RegCompra' component={CompraInic}/> 
+                <Stack.Screen name='ConsTipoAnimal' component={ConsTipAnimInic}/> 
 
                 
             </Stack.Navigator>
