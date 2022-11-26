@@ -111,6 +111,26 @@ const Registros = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
+
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('RegPersonal' as never)}>
+          <Image
+            source={require('../../assets/secciones/RegPersonal.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('RegCompra' as never)}>
+          <Image
+            source={require('../../assets/secciones/RegCompra.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
         <Text> </Text>
         <Text> </Text>
         <Text> </Text>
