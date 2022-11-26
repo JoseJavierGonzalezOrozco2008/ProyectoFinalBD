@@ -75,10 +75,10 @@ function validarVacio(){
           //Necesito otra Screen
           AsyncStorage.setItem('puesto', JSON.stringify(responseJson.puesto))
           const puestoP= await AsyncStorage.getItem('puesto')
-          getPuestoAdm(puestoP)
+          getPuestoAdm(responseJson.puesto)
           AsyncStorage.setItem('nombre',JSON.stringify(responseJson.nombre));
           const nombre = await AsyncStorage.getItem('nombre')
-          getNameAdm(nombre)
+          getNameAdm(responseJson.nombre)
           navigation.navigate('Admin' as never);
           setUser('')
           setPassw('')        }
