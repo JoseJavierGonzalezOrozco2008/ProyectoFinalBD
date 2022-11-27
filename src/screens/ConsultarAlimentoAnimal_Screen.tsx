@@ -21,23 +21,22 @@ const Stack = createStackNavigator();
 const ip = '192.168.8.5:3000';
 
 let id: any;
-let id_Alimento: any;
-let idAlimentoVenta: any;
-let id_Personal: any;
 let nombre: any;
+let descripcion: any;
 let cantidad: any;
-let precio: any;
-let comida: any;
+let tipoUnidad: any;
 
-const ConsultarTipoAnimal_Screen = () => {
+let msg: any;
+
+const ConsultarAlimentoAnimal_Screen = () => {
   const navigation = useNavigation();
 
   const [modalVisible1, setModalVisible1] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
   const [modalVisible3, setModalVisible3] = useState(false);
 
-  const [idTipoAnim, setIdTipoAnim] = useState('');
-  const [idTipoAnimf, setIdTipoAnimf] = useState(0);
+  const [idAlimAnim, setIdAlimAnim] = useState('');
+  const [idAlimAnimf, setIdAlimAnimf] = useState(0);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -79,7 +78,7 @@ const ConsultarTipoAnimal_Screen = () => {
         </Modal>
         <Modal animationType="slide" visible={modalVisible3}>
           <View style={styles.modal}>
-            <Text style={styles.modalText}>¡Upps... Algo salió mal!</Text>
+            <Text style={styles.modalText}>{msg}</Text>
             <Image
               source={require('../../assets/cow.png')}
               resizeMode="contain"
@@ -93,12 +92,12 @@ const ConsultarTipoAnimal_Screen = () => {
             />
           </View>
         </Modal>
-        <Text style={styles.txtTitle}>Consultar Tipo de Animal</Text>
+        <Text style={styles.txtTitle}>Consultar Alimento Animal</Text>
         <Text style={styles.insText}>
-          Ingrese el ID del tipo de animal a buscar:
+          Ingrese el ID del alimento de animal a buscar:
         </Text>
         <Input
-          value={idTipoAnim}
+          value={idAlimAnim}
           style={styles.input}
           placeholder="Ingrese el ID"
           onChangeText={idd => saveID(idd)}
@@ -117,54 +116,49 @@ const ConsultarTipoAnimal_Screen = () => {
   );
 
   function validoYenvio() {
-    if (idTipoAnim === '') {
-      setIdTipoAnim('');
+    if (idAlimAnim === '') {
+      setIdAlimAnim('');
 
       setModalVisible1(true);
     } else {
-      if (!isNaN(idTipoAnimf) && idTipoAnimf != 0) {
-        fetch(`http://${ip}/tipoAnimales/get-tipo_animal/` + idTipoAnimf, {
+      if (!isNaN(idAlimAnimf) && idAlimAnimf != 0) {
+        fetch(`http://${ip}/alimentoAnimal/get-dataAlimento/` + idAlimAnimf, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log('Entré ', responseJson);
-            console.log(responseJson.length);
             id = responseJson[0].id;
-            id_Alimento = responseJson[0].id_Alimento;
-            idAlimentoVenta = responseJson[0].id_Alimento_Venta;
-            id_Personal = responseJson[0].id_Personal;
             nombre = responseJson[0].Nombre;
+            descripcion = responseJson[0].Descripcion;
             cantidad = responseJson[0].Cantidad;
-            precio = responseJson[0].Precio;
-            comida = responseJson[0].Comida;
-
-            navigation.navigate('resConsTipAnim' as never);
+            tipoUnidad = responseJson[0].TipoUnidad
+            navigation.navigate('resConsAclimAnim' as never);
           })
           .catch(error => {
-            setIdTipoAnim('');
-            setIdTipoAnimf(0);
+            setIdAlimAnim('');
+            setIdAlimAnimf(0);
             console.log(error);
           });
       } else {
-        setIdTipoAnim('');
-        setIdTipoAnimf(0);
+        setIdAlimAnim('');
+        setIdAlimAnimf(0);
         setModalVisible2(true);
       }
     }
   }
   function saveID(idd: string) {
-    setIdTipoAnim(idd);
+    setIdAlimAnim(idd);
     let n: number = parseInt(idd);
-    setIdTipoAnimf(n);
+    setIdAlimAnimf(n);
   }
 };
 
-const ResConsultarTipoAnimal_Screen = () => {
+const ResConsultarAlimentoAnimal_Screen = () => {
   const navigation = useNavigation();
-  const header = ['ID', 'ID Alimento', 'ID Alimento de Venta', 'ID Personal', 'Nombre', 'Cantidad', 'Precio', 'Comida']
+  const header = ['ID', 'Nombre', 'Descripción','Cantidad','Tipo de Unidad']
   const data = [
-      [id, id_Alimento, idAlimentoVenta, id_Personal, nombre, cantidad, precio, comida],
+      [id, nombre, descripcion, cantidad, tipoUnidad],
   
 
   ]
@@ -172,7 +166,7 @@ const ResConsultarTipoAnimal_Screen = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scroll}>
         <Text style={styles.txtTitle}>
-          Resultados Consultar Tipo de Animal para id: {id}
+          Resultados Consultar Actividad para id: {id}
         </Text>
         <Table borderStyle={{borderWidth: 1, borderColor: 'white', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
           <Row data={header} style={{height: 90, backgroundColor: 'gray'}} textStyle={{color: 'white',textAlign: 'center'}} />
@@ -194,16 +188,16 @@ const ResConsultarTipoAnimal_Screen = () => {
   );
 };
 
-const ConsTipAnimInic = ({}: RoutesProps) => {
+const ConsAlimAnimalInic = ({}: RoutesProps) => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen
-        name="HomeConsTipAnim"
-        component={ConsultarTipoAnimal_Screen}
+        name="HomeConsAlimAnim"
+        component={ConsultarAlimentoAnimal_Screen}
       />
       <Stack.Screen
-        name="resConsTipAnim"
-        component={ResConsultarTipoAnimal_Screen}
+        name="resConsAclimAnim"
+        component={ResConsultarAlimentoAnimal_Screen}
       />
     </Stack.Navigator>
   );
@@ -288,4 +282,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ConsTipAnimInic;
+export default ConsAlimAnimalInic;

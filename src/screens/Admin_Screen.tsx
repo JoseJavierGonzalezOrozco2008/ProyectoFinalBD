@@ -140,41 +140,69 @@ const Registros = () => {
 };
 
 const Existencias = () => {
-
   const navigation = useNavigation();
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <TouchableOpacity style={styles.button}>
-        <Image
-          source={require('../../assets/secciones/ConsAnimal.jpg')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
-      <Text> </Text>
-      <TouchableOpacity style={styles.button2}>
-        <Image
-          source={require('../../assets/secciones/ConsMateria.jpg')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
-      <Text> </Text>
-      <TouchableOpacity style={styles.button3}>
-        <Image
-          source={require('../../assets/secciones/ConsActivi.jpg')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
-      <Text> </Text>
+    <ScrollView style={styles.scroll}>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ConsAnimal' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsAnimal.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+        <TouchableOpacity style={styles.button2}>
+          <Image
+            source={require('../../assets/secciones/ConsMateria.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('ConsActividad' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsActivi.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
 
-      <TouchableOpacity style={styles.button3} onPress={() => navigation.navigate('ConsTipoAnimal' as never)}>
-        <Image
-          source={require('../../assets/secciones/ConsTipoAnimal.jpg')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
-      <Text> </Text>
-    </View>
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('ConsTipoAnimal' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsTipoAnimal.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('ConsDireccion' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsDireccion.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text> 
+
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('ConsAlimAnim' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsAlimAnim.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+        <Text> </Text>
+        <Text> </Text>
+        <Text> </Text>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -234,7 +262,6 @@ const Eliminar = () => {
         </TouchableOpacity>
         <Text> </Text>
 
-
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('ElimCliente' as never)}>
@@ -255,7 +282,6 @@ const Eliminar = () => {
         </TouchableOpacity>
         <Text> </Text>
 
-
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('ElimPersonal' as never)}>
@@ -275,7 +301,6 @@ const Eliminar = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
-
 
         <TouchableOpacity
           style={styles.button}

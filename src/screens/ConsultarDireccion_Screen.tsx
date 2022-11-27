@@ -21,23 +21,25 @@ const Stack = createStackNavigator();
 const ip = '192.168.8.5:3000';
 
 let id: any;
-let id_Alimento: any;
-let idAlimentoVenta: any;
-let id_Personal: any;
-let nombre: any;
-let cantidad: any;
-let precio: any;
-let comida: any;
+let calle: any;
+let numero: any;
+let colonia: any;
+let cp: any;
+let municipio: any;
+let estado: any;
+let pais: any;
 
-const ConsultarTipoAnimal_Screen = () => {
+let msg: any;
+
+const ConsultarDireccion_Screen = () => {
   const navigation = useNavigation();
 
   const [modalVisible1, setModalVisible1] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
   const [modalVisible3, setModalVisible3] = useState(false);
 
-  const [idTipoAnim, setIdTipoAnim] = useState('');
-  const [idTipoAnimf, setIdTipoAnimf] = useState(0);
+  const [idDireccion, setIdDireccion] = useState('');
+  const [idDireccionf, setIdDireccionf] = useState(0);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -79,7 +81,7 @@ const ConsultarTipoAnimal_Screen = () => {
         </Modal>
         <Modal animationType="slide" visible={modalVisible3}>
           <View style={styles.modal}>
-            <Text style={styles.modalText}>¡Upps... Algo salió mal!</Text>
+            <Text style={styles.modalText}>{msg}</Text>
             <Image
               source={require('../../assets/cow.png')}
               resizeMode="contain"
@@ -93,12 +95,12 @@ const ConsultarTipoAnimal_Screen = () => {
             />
           </View>
         </Modal>
-        <Text style={styles.txtTitle}>Consultar Tipo de Animal</Text>
+        <Text style={styles.txtTitle}>Consultar Dirección</Text>
         <Text style={styles.insText}>
-          Ingrese el ID del tipo de animal a buscar:
+          Ingrese el ID de la dirección a buscar:
         </Text>
         <Input
-          value={idTipoAnim}
+          value={idDireccion}
           style={styles.input}
           placeholder="Ingrese el ID"
           onChangeText={idd => saveID(idd)}
@@ -117,54 +119,60 @@ const ConsultarTipoAnimal_Screen = () => {
   );
 
   function validoYenvio() {
-    if (idTipoAnim === '') {
-      setIdTipoAnim('');
+    if (idDireccion === '') {
+      setIdDireccion('');
 
       setModalVisible1(true);
     } else {
-      if (!isNaN(idTipoAnimf) && idTipoAnimf != 0) {
-        fetch(`http://${ip}/tipoAnimales/get-tipo_animal/` + idTipoAnimf, {
+      if (!isNaN(idDireccionf) && idDireccionf != 0) {
+        fetch(`http://${ip}/direcciones/get-dataDireccion/` + idDireccionf, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
-            console.log('Entré ', responseJson);
-            console.log(responseJson.length);
-            id = responseJson[0].id;
-            id_Alimento = responseJson[0].id_Alimento;
-            idAlimentoVenta = responseJson[0].id_Alimento_Venta;
-            id_Personal = responseJson[0].id_Personal;
-            nombre = responseJson[0].Nombre;
-            cantidad = responseJson[0].Cantidad;
-            precio = responseJson[0].Precio;
-            comida = responseJson[0].Comida;
 
-            navigation.navigate('resConsTipAnim' as never);
+            if(responseJson.ok === false){
+                msg = responseJson.msg;
+                setModalVisible3(true)
+                console.log(responseJson.msg)
+            }else{
+                console.log('Entré ', responseJson);
+                id = responseJson[0].id;
+                calle = responseJson[0].Calle;
+                numero = responseJson[0].Numero;
+                colonia = responseJson[0].Colonia
+                cp = responseJson[0].CP
+                municipio = responseJson[0].Municipio
+                estado = responseJson[0].Estado
+                pais = responseJson[0].Pais
+                navigation.navigate('resConsDir' as never);
+            }
+
           })
           .catch(error => {
-            setIdTipoAnim('');
-            setIdTipoAnimf(0);
+            setIdDireccion('');
+            setIdDireccionf(0);
             console.log(error);
           });
       } else {
-        setIdTipoAnim('');
-        setIdTipoAnimf(0);
+        setIdDireccion('');
+        setIdDireccionf(0);
         setModalVisible2(true);
       }
     }
   }
   function saveID(idd: string) {
-    setIdTipoAnim(idd);
+    setIdDireccion(idd);
     let n: number = parseInt(idd);
-    setIdTipoAnimf(n);
+    setIdDireccionf(n);
   }
 };
 
-const ResConsultarTipoAnimal_Screen = () => {
+const ResConsultarDireccion_Screen = () => {
   const navigation = useNavigation();
-  const header = ['ID', 'ID Alimento', 'ID Alimento de Venta', 'ID Personal', 'Nombre', 'Cantidad', 'Precio', 'Comida']
+  const header = ['ID', 'Calle', 'Número', 'Colonia', 'CP','Municipio', 'Estado', 'País']
   const data = [
-      [id, id_Alimento, idAlimentoVenta, id_Personal, nombre, cantidad, precio, comida],
+      [id, calle, numero, colonia, cp, municipio, estado, pais],
   
 
   ]
@@ -172,7 +180,7 @@ const ResConsultarTipoAnimal_Screen = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scroll}>
         <Text style={styles.txtTitle}>
-          Resultados Consultar Tipo de Animal para id: {id}
+          Resultados Consultar Dirección para id: {id}
         </Text>
         <Table borderStyle={{borderWidth: 1, borderColor: 'white', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
           <Row data={header} style={{height: 90, backgroundColor: 'gray'}} textStyle={{color: 'white',textAlign: 'center'}} />
@@ -194,16 +202,16 @@ const ResConsultarTipoAnimal_Screen = () => {
   );
 };
 
-const ConsTipAnimInic = ({}: RoutesProps) => {
+const ConsDireccionInic = ({}: RoutesProps) => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen
-        name="HomeConsTipAnim"
-        component={ConsultarTipoAnimal_Screen}
+        name="HomeConsDir"
+        component={ConsultarDireccion_Screen}
       />
       <Stack.Screen
-        name="resConsTipAnim"
-        component={ResConsultarTipoAnimal_Screen}
+        name="resConsDir"
+        component={ResConsultarDireccion_Screen}
       />
     </Stack.Navigator>
   );
@@ -288,4 +296,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ConsTipAnimInic;
+export default ConsDireccionInic;

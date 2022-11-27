@@ -21,23 +21,19 @@ const Stack = createStackNavigator();
 const ip = '192.168.8.5:3000';
 
 let id: any;
-let id_Alimento: any;
-let idAlimentoVenta: any;
-let id_Personal: any;
 let nombre: any;
-let cantidad: any;
-let precio: any;
-let comida: any;
+let descripcion: any;
 
-const ConsultarTipoAnimal_Screen = () => {
+
+const ConsultarActividad_Screen = () => {
   const navigation = useNavigation();
 
   const [modalVisible1, setModalVisible1] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
   const [modalVisible3, setModalVisible3] = useState(false);
 
-  const [idTipoAnim, setIdTipoAnim] = useState('');
-  const [idTipoAnimf, setIdTipoAnimf] = useState(0);
+  const [idActividad, setIdAct] = useState('');
+  const [idActividadf, setIdActividadf] = useState(0);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -93,12 +89,12 @@ const ConsultarTipoAnimal_Screen = () => {
             />
           </View>
         </Modal>
-        <Text style={styles.txtTitle}>Consultar Tipo de Animal</Text>
+        <Text style={styles.txtTitle}>Consultar Actividad</Text>
         <Text style={styles.insText}>
-          Ingrese el ID del tipo de animal a buscar:
+          Ingrese el ID de la actividad a buscar:
         </Text>
         <Input
-          value={idTipoAnim}
+          value={idActividad}
           style={styles.input}
           placeholder="Ingrese el ID"
           onChangeText={idd => saveID(idd)}
@@ -117,54 +113,48 @@ const ConsultarTipoAnimal_Screen = () => {
   );
 
   function validoYenvio() {
-    if (idTipoAnim === '') {
-      setIdTipoAnim('');
+    if (idActividad === '') {
+      setIdAct('');
 
       setModalVisible1(true);
     } else {
-      if (!isNaN(idTipoAnimf) && idTipoAnimf != 0) {
-        fetch(`http://${ip}/tipoAnimales/get-tipo_animal/` + idTipoAnimf, {
+      if (!isNaN(idActividadf) && idActividadf != 0) {
+        fetch(`http://${ip}/activities/get-activity/` + idActividadf, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log('Entré ', responseJson);
-            console.log(responseJson.length);
-            id = responseJson[0].id;
-            id_Alimento = responseJson[0].id_Alimento;
-            idAlimentoVenta = responseJson[0].id_Alimento_Venta;
-            id_Personal = responseJson[0].id_Personal;
-            nombre = responseJson[0].Nombre;
-            cantidad = responseJson[0].Cantidad;
-            precio = responseJson[0].Precio;
-            comida = responseJson[0].Comida;
+            id = responseJson.obj.id;
+            nombre = responseJson.obj.Nombre;
+            descripcion = responseJson.obj.Descripcion;
 
-            navigation.navigate('resConsTipAnim' as never);
+            navigation.navigate('resConsAct' as never);
           })
           .catch(error => {
-            setIdTipoAnim('');
-            setIdTipoAnimf(0);
+            setIdAct('');
+            setIdActividadf(0);
             console.log(error);
           });
       } else {
-        setIdTipoAnim('');
-        setIdTipoAnimf(0);
+        setIdAct('');
+        setIdActividadf(0);
         setModalVisible2(true);
       }
     }
   }
   function saveID(idd: string) {
-    setIdTipoAnim(idd);
+    setIdAct(idd);
     let n: number = parseInt(idd);
-    setIdTipoAnimf(n);
+    setIdActividadf(n);
   }
 };
 
-const ResConsultarTipoAnimal_Screen = () => {
+const ResConsultarActividad_Screen = () => {
   const navigation = useNavigation();
-  const header = ['ID', 'ID Alimento', 'ID Alimento de Venta', 'ID Personal', 'Nombre', 'Cantidad', 'Precio', 'Comida']
+  const header = ['ID', 'Nombre', 'Descripción']
   const data = [
-      [id, id_Alimento, idAlimentoVenta, id_Personal, nombre, cantidad, precio, comida],
+      [id, nombre, descripcion],
   
 
   ]
@@ -172,7 +162,7 @@ const ResConsultarTipoAnimal_Screen = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scroll}>
         <Text style={styles.txtTitle}>
-          Resultados Consultar Tipo de Animal para id: {id}
+          Resultados Consultar Actividad para id: {id}
         </Text>
         <Table borderStyle={{borderWidth: 1, borderColor: 'white', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
           <Row data={header} style={{height: 90, backgroundColor: 'gray'}} textStyle={{color: 'white',textAlign: 'center'}} />
@@ -194,16 +184,16 @@ const ResConsultarTipoAnimal_Screen = () => {
   );
 };
 
-const ConsTipAnimInic = ({}: RoutesProps) => {
+const ConsActividadInic = ({}: RoutesProps) => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen
-        name="HomeConsTipAnim"
-        component={ConsultarTipoAnimal_Screen}
+        name="HomeConsAct"
+        component={ConsultarActividad_Screen}
       />
       <Stack.Screen
-        name="resConsTipAnim"
-        component={ResConsultarTipoAnimal_Screen}
+        name="resConsAct"
+        component={ResConsultarActividad_Screen}
       />
     </Stack.Navigator>
   );
@@ -288,4 +278,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ConsTipAnimInic;
+export default ConsActividadInic;

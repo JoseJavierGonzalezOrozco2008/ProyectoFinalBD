@@ -25,6 +25,10 @@ import RegistrarActividad_Screen from './src/screens/RegistrarActividad_Screen';
 import PersonalInic from './src/screens/RegistrarPersonal_Screen';
 import CompraInic from './src/screens/RegistrarCompra_Screen';
 import ConsTipAnimInic from './src/screens/ConsultarTipoAnimal_Screen';
+import ConsActividadInic from './src/screens/ConsultarActividad_Screen';
+import ConsDireccionInic from './src/screens/ConsultarDireccion_Screen';
+import ConsAnimalesInic from './src/screens/ConsultarAnimales_Screen';
+import ConsAlimAnimalInic from './src/screens/ConsultarAlimentoAnimal_Screen';
 
 const Stack = createStackNavigator();
 
@@ -59,7 +63,12 @@ const App = () => {
                 <Stack.Screen name='RegPersonal' component={PersonalInic}/> 
                 <Stack.Screen name='RegCompra' component={CompraInic}/> 
                 <Stack.Screen name='ConsTipoAnimal' component={ConsTipAnimInic}/> 
+                <Stack.Screen name='ConsActividad' component={ConsActividadInic}/> 
+                <Stack.Screen name='ConsDireccion' component={ConsDireccionInic}/> 
+                <Stack.Screen name='ConsAnimal' component={ConsAnimalesInic}/> 
+                <Stack.Screen name='ConsAlimAnim' component={ConsAlimAnimalInic}/> 
 
+                
                 
             </Stack.Navigator>
         </NavigationContainer>
