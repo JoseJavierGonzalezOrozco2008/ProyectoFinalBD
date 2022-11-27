@@ -59,13 +59,14 @@ const Ventas = () => {
 };
 
 const Animales = () => {
+  const navigation = useNavigation();
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} >
        <Image source={require('../../assets/secciones/animales.png')} style={styles.image} />
       </TouchableOpacity>
       <Text>  </Text>
-      <TouchableOpacity style={styles.button2}>
+      <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('ActAlimAnim' as never)}>
        <Image source={require('../../assets/secciones/alimentar.png')} style={styles.image} />
       </TouchableOpacity>
       <Text>  </Text>
@@ -124,16 +125,16 @@ const AppTab = () => {
 };
 
 export function getNamePer(nombre: any){
-  let obj:MyObj= JSON.parse(nombre)
-  res = obj.nombre
+  //let obj:MyObj= JSON.parse(nombre)
+  res = nombre
   console.log(res,' desde Personal_Screen')
 
 }
 
 export function getPuestoPer(puestoP:any){
   console.log("valor al momento de entrar a la funcion ",puestoP)
-  let ps:MyObj1 = JSON.parse(puestoP)
-  resPuesto = ps.puesto
+  //let ps:MyObj1 = JSON.parse(puestoP)
+  resPuesto = puestoP
   console.log(resPuesto, ' desde Personal Screen')
 }
 

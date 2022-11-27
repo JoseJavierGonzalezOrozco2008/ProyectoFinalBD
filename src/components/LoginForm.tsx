@@ -7,7 +7,7 @@ import { getNamePer, getPuestoPer, Usuario } from '../screens/Personal_Screen';
 import { getNameAdm, getPuestoAdm } from '../screens/Admin_Screen';
 
 
-const ip = '192.168.8.5:3000';
+const ip = '192.168.8.6:3000';
 
 
 const LoginForm = () => {
@@ -64,10 +64,10 @@ function validarVacio(){
         if(responseJson.puesto === 'Personal'){
           AsyncStorage.setItem('puesto', JSON.stringify(responseJson.puesto))
           const puestoP= JSON.stringify(responseJson.puesto);
-          getPuestoPer(puestoP)
+          getPuestoPer(responseJson.puesto)
           AsyncStorage.setItem('nombre',JSON.stringify(responseJson.nombre));
           const nombre = JSON.stringify(responseJson.nombre);
-          getNamePer(nombre)
+          getNamePer(responseJson.nombre)
           navigation.navigate('Personal' as never);
           setUser('')
           setPassw('')
