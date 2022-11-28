@@ -52,7 +52,7 @@ const Ventas = () => {
       <Image source={require('../../assets/secciones/venta.jpg')} style={styles.image} />
       </TouchableOpacity>
       <Text> </Text>
-      <TouchableOpacity style={styles.button3}>
+      <TouchableOpacity style={styles.button3} onPress={() => navigation.navigate('ConsAlmacen' as never)}>
        <Image source={require('../../assets/secciones/almacen.jpg')} style={styles.image} />
       </TouchableOpacity>
     </View>
