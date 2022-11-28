@@ -41,13 +41,14 @@ const Tab = createBottomTabNavigator();
 
 
 const Ventas = () => {
+  const navigation = useNavigation();
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <TouchableOpacity style={styles.button}>
        <Image source={require('../../assets/secciones/compra.jpeg')} style={styles.image} />
       </TouchableOpacity>
       <Text> </Text>
-      <TouchableOpacity style={styles.button2}>
+      <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('RegVenta' as never)}>
       <Image source={require('../../assets/secciones/venta.jpg')} style={styles.image} />
       </TouchableOpacity>
       <Text> </Text>

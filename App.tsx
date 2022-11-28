@@ -30,6 +30,7 @@ import ConsDireccionInic from './src/screens/ConsultarDireccion_Screen';
 import ConsAnimalesInic from './src/screens/ConsultarAnimales_Screen';
 import ConsAlimAnimalInic from './src/screens/ConsultarAlimentoAnimal_Screen';
 import ActAlimAnimalInic from './src/screens/ActualizarAlimentoAnimal';
+import VentaInic from './src/screens/RegistrarVenta_Screen';
 
 const Stack = createStackNavigator();
 
@@ -69,6 +70,7 @@ const App = () => {
                 <Stack.Screen name='ConsAnimal' component={ConsAnimalesInic}/> 
                 <Stack.Screen name='ConsAlimAnim' component={ConsAlimAnimalInic}/> 
                 <Stack.Screen name='ActAlimAnim' component={ActAlimAnimalInic}/> 
+                <Stack.Screen name='RegVenta' component={VentaInic}/> 
 
                 
                 
