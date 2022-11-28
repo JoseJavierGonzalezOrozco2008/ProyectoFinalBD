@@ -10,7 +10,7 @@ function useDatos() {
     const [info, setInfo] = useState<any[]>([])
    
     useEffect(() => {
-      fetch(`http://${ip}/materiaPrima/get-materiasPrimas`)
+      fetch(`http://${ip}/alimentoAnimal/get-dataAlimentos`)
         .then(response => response.json())
         .then(datos => {
           setInfo(datos)
@@ -22,23 +22,23 @@ function useDatos() {
 
 
 
-const ConsultarAlmace = () => {
+const ConsultarAlimAnimCompleto = () => {
 
     const navigation = useNavigation();
     const datos = useDatos()
-    const header = ['ID', 'Nombre', 'Descripción','Cantidad']
+    const header = ['ID', 'Nombre', 'Descripción','Cantidad','Tipo de Unidad']
 
     return (
    
         <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scroll}>
           <Text style={styles.txtTitle}>
-            Almacén
+            Animales
           </Text>
           <Table borderStyle={{borderWidth: 1, borderColor: 'black', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
             <Row data={header} style={{height: 90, backgroundColor: 'gray'}} textStyle={{color: 'white',textAlign: 'center'}}/> 
             {datos.map(item =>(
-                <Row key={item.id} data={[item.id, item.Nombre, item.Descripcion, item.Cantidad]} style={{height: 90, backgroundColor: 'white'}} textStyle={{color: 'black',textAlign: 'center'}} /> 
+                <Row key={item.id} data={[item.id, item.Nombre,item.Descripcion, item.Cantidad, item.TipoUnidad]} style={{height: 90, backgroundColor: 'white'}} textStyle={{color: 'black',textAlign: 'center'}} /> 
             ))}
           
           </Table> 
@@ -56,7 +56,7 @@ const ConsultarAlmace = () => {
   
         </ScrollView>
       </SafeAreaView>
-           )
+    )
 }
 
 const styles = StyleSheet.create({
@@ -140,4 +140,4 @@ const styles = StyleSheet.create({
   });
   
   
-export default ConsultarAlmace
+export default ConsultarAlimAnimCompleto

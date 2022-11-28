@@ -44,8 +44,8 @@ const Ventas = () => {
   const navigation = useNavigation();
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <TouchableOpacity style={styles.button}>
-       <Image source={require('../../assets/secciones/compra.jpeg')} style={styles.image} />
+      <TouchableOpacity style={styles.button}onPress={() => navigation.navigate('ConsVentasCompleto' as never)}>
+       <Image source={require('../../assets/secciones/ConsultaCompVentas.jpg')} style={styles.image} />
       </TouchableOpacity>
       <Text> </Text>
       <TouchableOpacity style={styles.button2} onPress={() => navigation.navigate('RegVenta' as never)}>
@@ -63,7 +63,7 @@ const Animales = () => {
   const navigation = useNavigation();
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <TouchableOpacity style={styles.button} >
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ConsultaComplAnimales' as never)}>
        <Image source={require('../../assets/secciones/animales.png')} style={styles.image} />
       </TouchableOpacity>
       <Text>  </Text>
@@ -75,6 +75,15 @@ const Animales = () => {
        <Image source={require('../../assets/secciones/nuevo.png')} style={styles.image} />
       </TouchableOpacity>
       <Text>  </Text>
+      <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ConsAlimAnimCompleto' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsAlimAnim.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
     </View>
   );
 };
