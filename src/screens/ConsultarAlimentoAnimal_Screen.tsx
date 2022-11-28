@@ -166,7 +166,7 @@ const ResConsultarAlimentoAnimal_Screen = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scroll}>
         <Text style={styles.txtTitle}>
-          Resultados Consultar Actividad para id: {id}
+          Resultados Consultar Alimento Animal para id: {id}
         </Text>
         <Table borderStyle={{borderWidth: 1, borderColor: 'white', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
           <Row data={header} style={{height: 90, backgroundColor: 'gray'}} textStyle={{color: 'white',textAlign: 'center'}} />
