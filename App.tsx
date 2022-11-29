@@ -35,6 +35,7 @@ import ConsultarAlmace from './src/screens/ConsultarAlmace';
 import ConsultarAnimales from './src/screens/ConsultarAnimalesCompleto_Screen';
 import ConsultarAlimAnimCompleto from './src/screens/ConsultarAlimAnimCompleto_Screen';
 import ConsultarVentasCompleto from './src/screens/ConsultaCpmpletaVentas_Screen';
+import ConsultarActividadCompleto from './src/screens/ConsComplActividades_Screen';
 
 const Stack = createStackNavigator();
 
@@ -79,6 +80,7 @@ const App = () => {
                 <Stack.Screen name='ConsultaComplAnimales' component={ConsultarAnimales}/> 
                 <Stack.Screen name='ConsAlimAnimCompleto' component={ConsultarAlimAnimCompleto}/> 
                 <Stack.Screen name='ConsVentasCompleto' component={ConsultarVentasCompleto}/> 
+                <Stack.Screen name='ConsActividadCompleto' component={ConsultarActividadCompleto}/> 
 
                 
                 
