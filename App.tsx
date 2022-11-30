@@ -39,6 +39,7 @@ import ConsultarActividadCompleto from './src/screens/ConsComplActividades_Scree
 import ConsultarTipoAnimalCompleto from './src/screens/ConsultaCompletaTipoAnimal_Screen';
 import ActPersonalInic from './src/screens/ActualizarPersonal_Screen';
 import ActAlimAnimalAdminInic from './src/screens/ActualizarAlimAnimAdmin_Screen';
+import ActAlimVentaInic from './src/screens/ActualizarAlimentoVenta_Screen';
 
 const Stack = createStackNavigator();
 
@@ -87,6 +88,7 @@ const App = () => {
                 <Stack.Screen name='ConsTipoAnimCompleto' component={ConsultarTipoAnimalCompleto}/> 
                 <Stack.Screen name='ActualizarPersonal' component={ActPersonalInic}/> 
                 <Stack.Screen name='ActualizarAlimAnimAdmin' component={ActAlimAnimalAdminInic}/> 
+                <Stack.Screen name='ActualizarAlimVenta' component={ActAlimVentaInic}/> 
 
                 
                 
