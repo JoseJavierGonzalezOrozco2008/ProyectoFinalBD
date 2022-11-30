@@ -46,7 +46,7 @@ const ConsultarTipoAnimal_Screen = () => {
           <View style={styles.modal}>
             <Text style={styles.modalText}>¡Ingrese algún dato!</Text>
             <Image
-              source={require('../../assets/cow.png')}
+              source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
               style={styles.Image}
             />
@@ -65,7 +65,7 @@ const ConsultarTipoAnimal_Screen = () => {
               ¡Ingrese algún valor numérico válido!
             </Text>
             <Image
-              source={require('../../assets/cow.png')}
+              source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
               style={styles.Image}
             />
@@ -81,7 +81,7 @@ const ConsultarTipoAnimal_Screen = () => {
           <View style={styles.modal}>
             <Text style={styles.modalText}>¡Upps... Algo salió mal!</Text>
             <Image
-              source={require('../../assets/cow.png')}
+              source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
               style={styles.Image}
             />
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
   modal: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#B8B8B8',
+    backgroundColor: '#FFFF',
     height: 300,
     width: '80%',
     borderRadius: 10,

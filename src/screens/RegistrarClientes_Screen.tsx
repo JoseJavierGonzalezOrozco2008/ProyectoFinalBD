@@ -40,7 +40,7 @@ const RegCliente = () => {
             <View style={styles.modal}>
               <Text style={styles.modalText}>¡Ingrese todos los campos!</Text>
               <Image
-                source={require('../../assets/cow.png')}
+                source={require('../../assets/cow2.jpg')}
                 resizeMode="contain"
                 style={styles.Image}
               />
@@ -73,7 +73,7 @@ const RegCliente = () => {
           <View style={styles.modal}>
             <Text style={styles.modalText}>¡Ingrese formato correcto para "Estatus"!</Text>
             <Image
-              source={require('../../assets/cow.png')}
+              source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
               style={styles.Image}
             />
@@ -449,7 +449,7 @@ const styles = StyleSheet.create({
   modal: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#B8B8B8',
+    backgroundColor: '#FFFF',
     height: 300,
     width: '80%',
     borderRadius: 10,

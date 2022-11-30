@@ -54,7 +54,7 @@ const ActualizarAlimentoVenta_Screen = () => {
           <View style={styles.modal}>
             <Text style={styles.modalText}>¡Ingrese algún dato!</Text>
             <Image
-              source={require('../../assets/cow.png')}
+              source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
               style={styles.Image}
             />
@@ -73,7 +73,7 @@ const ActualizarAlimentoVenta_Screen = () => {
               ¡Ingrese algún valor numérico válido!
             </Text>
             <Image
-              source={require('../../assets/cow.png')}
+              source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
               style={styles.Image}
             />
