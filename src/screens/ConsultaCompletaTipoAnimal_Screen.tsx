@@ -33,7 +33,7 @@ const ConsultarTipoAnimalCompleto = () => {
         <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scroll}>
           <Text style={styles.txtTitle}>
-            Ventas
+            Tipos de Animal
           </Text>
           <Table borderStyle={{borderWidth: 1, borderColor: 'black', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
             <Row data={header} style={{height: 90, backgroundColor: 'gray'}} textStyle={{color: 'white',textAlign: 'center'}}/> 
