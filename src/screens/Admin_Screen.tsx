@@ -206,6 +206,27 @@ const Existencias = () => {
   );
 };
 
+
+const Actualizar = () => {
+  const navigation = useNavigation();
+
+  return (
+    <ScrollView style={styles.scroll}>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ActualizarPersonal' as never)}>
+          <Image
+            source={require('../../assets/secciones/actualizarPersonal.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+        <Text> </Text>
+        <Text> </Text>
+      </View>
+    </ScrollView>
+  );
+};
+
 const Eliminar = () => {
   const navigation = useNavigation();
 
@@ -385,6 +406,13 @@ const AppTab = () => {
                 style={styles.icon}
               />
             );
+          }else if (route.name === 'Actualizar') {
+            return (
+              <Image
+                source={require('../../assets/Iconos/actualizarIcono.jpg')}
+                style={styles.icon}
+              />
+            );
           }
         },
         headerShown: false,
@@ -395,6 +423,8 @@ const AppTab = () => {
       <Tab.Screen name="Registros" component={Registros} />
       <Tab.Screen name="Existencias" component={Existencias} />
       <Tab.Screen name="Eliminar" component={Eliminar} />
+      <Tab.Screen name="Actualizar" component={Actualizar} />
+
     </Tab.Navigator>
   );
 };

@@ -207,6 +207,7 @@ const AppTab = () => {
       <Tab.Screen name="Usuario" component={Usuario} />
       <Tab.Screen name="Ventas" component={Ventas} />
       <Tab.Screen name="Animales" component={Animales} />
+
     </Tab.Navigator>
   );
 };
