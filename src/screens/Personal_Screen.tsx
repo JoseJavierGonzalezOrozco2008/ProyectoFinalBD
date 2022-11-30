@@ -131,6 +131,16 @@ const Animales = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
+
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('ConsTipoAnimCompleto' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsTipoAnimComp.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
         <Text> </Text>
         <Text> </Text>
       </View>
