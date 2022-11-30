@@ -220,6 +220,15 @@ const Actualizar = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
+        <TouchableOpacity
+          style={styles.button2}
+          onPress={() => navigation.navigate('ActualizarAlimAnimAdmin' as never)}>
+          <Image
+            source={require('../../assets/secciones/actualizarAlimAdmin.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
         <Text> </Text>
         <Text> </Text>
       </View>

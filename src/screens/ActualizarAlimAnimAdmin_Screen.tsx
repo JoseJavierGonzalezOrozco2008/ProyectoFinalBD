@@ -190,7 +190,7 @@ const ActualizarAlimentoAnimal_Screen = () => {
           .then(responseJson => {
             console.log('Entré ', responseJson);
             setModalVisible3(true)
-            navigation.navigate('Personal' as never)
+            navigation.navigate('Admin' as never)
             
           })
           .catch(error => {
@@ -245,11 +245,11 @@ const ActualizarAlimentoAnimal_Screen = () => {
 };
 
 
-const ActAlimAnimalInic = ({}: RoutesProps) => {
+const ActAlimAnimalAdminInic = ({}: RoutesProps) => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen
-        name="HomeConsAlimAnim"
+        name="HomeActAlimAnim"
         component={ActualizarAlimentoAnimal_Screen}
       />
     </Stack.Navigator>
@@ -335,4 +335,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ActAlimAnimalInic;
+export default ActAlimAnimalAdminInic;
