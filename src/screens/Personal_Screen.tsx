@@ -106,7 +106,7 @@ const Animales = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
-        <TouchableOpacity style={styles.button3}>
+        <TouchableOpacity style={styles.button3}  onPress={() => navigation.navigate('RegAnimal' as never)}>
           <Image
             source={require('../../assets/secciones/nuevo.png')}
             style={styles.image}

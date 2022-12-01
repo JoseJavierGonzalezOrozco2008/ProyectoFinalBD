@@ -43,7 +43,6 @@ const AnimalInic = () => {
   const [huevosTotal,setHuevosTotal] = useState('')
   const [huevosTotalf,setHuevosTotalf ] = useState(0)
 
-  const [comida, setComida] = useState('');
 
   return (
     <SafeAreaView style={styles.container}>
@@ -232,7 +231,7 @@ const AnimalInic = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idTipoAnimf) && !isNaN(pesof) && !isNaN(litrosDiaf) && !isNaN(litrosTotalf) && !isNaN(huevosDiaf) && !isNaN(huevosTotalf)) {
-        fetch(`https://rancho.onrender.com/tipoAnimales/create-tipo_animal`, {
+        fetch(`https://rancho.onrender.com/animales/create-animal`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -250,13 +249,13 @@ const AnimalInic = () => {
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log(responseJson);
-            if(responseJson.ok){
+            if(!responseJson.ok){
+                msg = responseJson.msg
+                setModalVisible4(true)
+                navigation.navigate('Personal' as never)
+            }else{
               setModalVisible2(true);
               navigation.navigate('Personal' as never);
-            }else{
-              msg = responseJson.msg
-              setModalVisible4(true)
-              navigation.navigate('Personal' as never)
             }
 
           })
