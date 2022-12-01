@@ -106,13 +106,6 @@ const VentaInic = () => {
               resizeMode="contain"
               style={styles.Image}
             />
-
-            <Button
-              title="Entendido"
-              onPress={() => {
-                setModalVisible4(false);
-              }}
-            />
           </View>
         </Modal>
         <Text style={styles.txtTitle}>Registrar Venta</Text>
@@ -249,8 +242,15 @@ const VentaInic = () => {
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log(responseJson);
-            setModalVisible2(true);
-            navigation.navigate('Personal' as never);
+            if(responseJson.ok){
+              setModalVisible2(true);
+              navigation.navigate('Personal' as never);
+            }else{
+              msg = responseJson.msg
+              setModalVisible4(true)
+              navigation.navigate('Personal' as never)
+            }
+
           })
           .catch(error => {
             console.log(error);

@@ -14,10 +14,10 @@ import {
 import {Input} from 'react-native-elements';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-interface RoutesProps {}
-
+let msg:string = "";
 const Stack = createStackNavigator();
-const ip = '172.16.115.112:3000';
+const ip = '192.168.8.6:3000';
+
 
 const PersonalInic = () => {
   const navigation = useNavigation();
@@ -104,7 +104,7 @@ const PersonalInic = () => {
         <Modal animationType="slide" visible={modalVisible4}>
           <View style={styles.modal}>
             <Text style={styles.modalText}>
-              ¡Upps... Algo salió mal!
+              {msg}
             </Text>
             <Image
               source={require('../../assets/cow2.jpg')}
@@ -207,6 +207,8 @@ const PersonalInic = () => {
         <TouchableOpacity style={styles.btn} onPress={() => validoYenvio()}>
           <Text style={styles.text}>Registrar Personal</Text>
         </TouchableOpacity>
+        <Text> </Text>
+        <Text> </Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -307,6 +309,7 @@ const PersonalInic = () => {
                 navigation.navigate('Admin' as never);
                 setModalVisible2(true);
               }else{
+                msg = responseJson.msg
                 setModalVisible4(true)
                 navigation.navigate('Admin' as never)
               }

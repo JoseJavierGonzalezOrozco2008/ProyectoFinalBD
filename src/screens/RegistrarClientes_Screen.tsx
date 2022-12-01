@@ -21,6 +21,8 @@ const ip = '172.16.115.112:3000';
 
 let id_direccion:number = 0;
 
+let msg:string = "";
+
 const RegCliente = () => {
 
   const navigation = useNavigation();
@@ -28,6 +30,8 @@ const RegCliente = () => {
   const [modalVisible1, setModalVisible1] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
   const [modalVisible3, setModalVisible3] = useState(false);
+  const [modalVisible4, setModalVisible4] = useState(false);
+
 
   const [nombre, setNombre] = useState('');
   const [correo, setCorreo] = useState('');
@@ -82,6 +86,22 @@ const RegCliente = () => {
               title="Entendido"
               onPress={() => {
                 setModalVisible3(false);
+              }}
+            />
+          </View>
+        </Modal>
+        <Modal animationType="slide" visible={modalVisible4}>
+          <View style={styles.modal}>
+            <Text style={styles.modalText}>{msg}</Text>
+            <Image
+              source={require('../../assets/cow2.jpg')}
+              resizeMode="contain"
+              style={styles.Image}
+            />
+            <Button
+              title="Entendido"
+              onPress={() => {
+                setModalVisible4(false);
               }}
             />
           </View>
@@ -171,6 +191,8 @@ const RegCliente = () => {
                             console.log('Validado')
                             navigation.navigate('Admin' as never)
                             setModalVisible2(true)
+                        }else{
+                          msg = responseJson.msg
                         }
                 })
                .catch(error =>{

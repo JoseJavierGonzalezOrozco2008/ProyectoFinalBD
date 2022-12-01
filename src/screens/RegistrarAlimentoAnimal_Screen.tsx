@@ -21,6 +21,7 @@ const Stack = createStackNavigator();
 
 const ip = '172.16.115.112:3000';
 
+let msg:string = "";
 
 const RegistrarAlimentoAnimal_Screen = () => {
     const navigation = useNavigation();
@@ -76,7 +77,7 @@ const RegistrarAlimentoAnimal_Screen = () => {
         </Modal>
         <Modal animationType="slide" visible={modalVisible3}>
           <View style={styles.modal}>
-            <Text style={styles.modalText}>¡Upps... Algo salió mal!</Text>
+            <Text style={styles.modalText}>{msg}</Text>
             <Image
               source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
@@ -185,6 +186,7 @@ const RegistrarAlimentoAnimal_Screen = () => {
                     navigation.navigate('Admin' as never)
                     setModalVisible4(true)
                   }else{
+                    msg = responseJson.msg
                     setModalVisible3(true)
                   }
                })

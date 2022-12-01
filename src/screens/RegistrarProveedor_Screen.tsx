@@ -19,6 +19,7 @@ interface RoutesProps {}
 const Stack = createStackNavigator();
 let id: String;
 
+let msg:string = ""
 
 const RegProv2 = () => {
 
@@ -27,6 +28,8 @@ const RegProv2 = () => {
   const [modalVisible1, setModalVisible1] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
   const [modalVisible3, setModalVisible3] = useState(false);
+  const [modalVisible4, setModalVisible4] = useState(false);
+
 
   const [razonS, setRazonS] = useState('');
   const [telefono, setTelefono] = useState('');
@@ -88,6 +91,22 @@ const RegProv2 = () => {
               title="Entendido"
               onPress={() => {
                 setModalVisible3(false);
+              }}
+            />
+          </View>
+        </Modal>
+        <Modal animationType="slide" visible={modalVisible4}>
+          <View style={styles.modal}>
+            <Text style={styles.modalText}>{msg}</Text>
+            <Image
+              source={require('../../assets/cow.png')}
+              resizeMode="contain"
+              style={styles.Image}
+            />
+            <Button
+              title="Entendido"
+              onPress={() => {
+                setModalVisible4(false);
               }}
             />
           </View>
@@ -190,6 +209,10 @@ const RegProv2 = () => {
                             console.log('Validado')
                             navigation.navigate('Admin' as never)
                             setModalVisible2(true)
+                        }else{
+                          msg = responseJson.msg
+                          setModalVisible4(true)
+                          navigation.navigate('Admin' as never)
                         }
                 })
                .catch(error =>{

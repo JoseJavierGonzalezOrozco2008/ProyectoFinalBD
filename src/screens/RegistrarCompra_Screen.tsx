@@ -18,6 +18,8 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 const Stack = createStackNavigator();
 const ip = '172.16.115.112:3000';
 
+let msg:string = ""
+
 const CompraInic = () => {
   const navigation = useNavigation();
 
@@ -99,7 +101,7 @@ const CompraInic = () => {
 
         <Modal animationType="slide" visible={modalVisible4}>
           <View style={styles.modal}>
-            <Text style={styles.modalText}>¡Upps... Algo salió mal!</Text>
+            <Text style={styles.modalText}>{msg}</Text>
             <Image
               source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
@@ -253,6 +255,7 @@ const CompraInic = () => {
               navigation.navigate('Admin' as never);
               setModalVisible2(true);
             } else {
+              msg = responseJson.msg
               setModalVisible4(true);
               navigation.navigate('Admin' as never);
             }
