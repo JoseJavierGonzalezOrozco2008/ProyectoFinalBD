@@ -162,7 +162,7 @@ const RegistrarMateriaPrima_Screen = () => {
         setModalVisible1(true)
     }else{
         if(!isNaN(cantidadf)){
-            fetch(`http://${ip}/materiaPrima/save-materiaPrima`,{
+            fetch(`https://rancho.onrender.com/materiaPrima/save-materiaPrima`,{
                 method: 'POST',
                 headers:{
                   'Accept': 'application/json',

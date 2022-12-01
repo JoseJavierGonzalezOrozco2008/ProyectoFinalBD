@@ -166,7 +166,7 @@ const RegistrarAlimentoAnimal_Screen = () => {
         setModalVisible1(true)
     }else{
         if(!isNaN(cantidadf)){
-            fetch(`http://${ip}/alimentoAnimal/create-alimentoAnimal`,{
+            fetch(`https://rancho.onrender.com/alimentoAnimal/create-alimentoAnimal`,{
                 method: 'POST',
                 headers:{
                   'Accept': 'application/json',

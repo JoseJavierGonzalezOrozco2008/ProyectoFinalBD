@@ -119,15 +119,15 @@ const ConsultarActividad_Screen = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idActividadf) && idActividadf != 0) {
-        fetch(`http://${ip}/activities/get-activity/` + idActividadf, {
+        fetch(`https://rancho.onrender.com/activities/get-activity/` + idActividadf, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log('Entré ', responseJson);
             id = responseJson.obj.id;
-            nombre = responseJson.obj.Nombre;
-            descripcion = responseJson.obj.Descripcion;
+            nombre = responseJson.obj.nombre;
+            descripcion = responseJson.obj.descripcion;
 
             navigation.navigate('resConsAct' as never);
           })

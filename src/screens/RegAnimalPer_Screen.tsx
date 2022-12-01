@@ -16,11 +16,10 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 
 const Stack = createStackNavigator();
-const ip = '172.16.115.112:3000';
+const ip = '192.168.8.6:3000';
+let msg = "";
 
-let msg:string = ""
-
-const CompraInic = () => {
+const AnimalInic = () => {
   const navigation = useNavigation();
 
   const [modalVisible1, setModalVisible1] = useState(false);
@@ -28,18 +27,23 @@ const CompraInic = () => {
   const [modalVisible3, setModalVisible3] = useState(false);
   const [modalVisible4, setModalVisible4] = useState(false);
 
-  const [idProv, setIdProv] = useState('');
-  const [idProvf, setIdProvf] = useState(0);
-  const [idProd, setIdProd] = useState('');
-  const [idProdf, setIdProdf] = useState(0);
+  const [idTipoAnim, setIdTipoAnim] = useState('');
+  const [idTipoAnimf, setIdTipoAnimf] = useState(0);
+  const [peso, setPeso] = useState('');
+  const [pesof, setPesof] = useState(0);
 
-  const [idPersonal, setIdPer] = useState('');
-  const [idPersonalf, setidPerf] = useState(0);
-  const [cantidad, setCantidad] = useState('');
-  const [cantidadf, setCantidadf] = useState(0);
-  const [precio, setPrecio] = useState('');
-  const [preciof, setPreciof] = useState(0);
-  const [fecha, setFecha] = useState('');
+  const [litrosDia, setLitrosDia] = useState('');
+  const [litrosDiaf, setLitrosDiaf] = useState(0);
+  const [litrosTotal, setLitrosTotal] = useState('');
+  const [litrosTotalf, setLitrosTotalf] = useState(0);
+  
+  const [huevosDia, setHuevosDia] = useState('');
+  const [huevosDiaf, setHuevosDiaf] = useState(0);
+
+  const [huevosTotal,setHuevosTotal] = useState('')
+  const [huevosTotalf,setHuevosTotalf ] = useState(0)
+
+  const [comida, setComida] = useState('');
 
   return (
     <SafeAreaView style={styles.container}>
@@ -107,72 +111,65 @@ const CompraInic = () => {
               resizeMode="contain"
               style={styles.Image}
             />
-
-            <Button
-              title="Entendido"
-              onPress={() => {
-                setModalVisible4(false);
-              }}
-            />
           </View>
         </Modal>
-        <Text style={styles.txtTitle}>Registrar Compra</Text>
-        <Text style={styles.insText}>Ingrese el id del Proveedor:</Text>
+        <Text style={styles.txtTitle}>Registrar Animal</Text>
+        <Text style={styles.insText}>Ingrese el id del Tipo de Animal:</Text>
         <Input
-          value={idProv}
+          value={idTipoAnim}
           style={styles.input}
-          placeholder="Ingrese el ID del proveedor"
-          onChangeText={idProvv => saveIdProv(idProvv)}
+          placeholder="Ingrese el ID del tipo de animal"
+          onChangeText={idTipoAnimm => saveIdTipoAnimal(idTipoAnimm)}
           autoCompleteType={undefined}
         />
 
-        <Text style={styles.insText}>Id Producto:</Text>
+        <Text style={styles.insText}>Peso:</Text>
         <Input
-          value={idProd}
+          value={peso}
           style={styles.input}
-          placeholder="Ingrese el id del Producto"
-          onChangeText={IdProdd => saveIdProd(IdProdd)}
+          placeholder="Ingrese el Peso"
+          onChangeText={pesoo => savePeso(pesoo)}
           autoCompleteType={undefined}
         />
 
-        <Text style={styles.insText}>Id Personal:</Text>
+        <Text style={styles.insText}>Litros del Día:</Text>
         <Input
-          value={idPersonal}
+          value={litrosDia}
           style={styles.input}
-          placeholder="Ingrese el ID del personal"
-          onChangeText={idPerr => savePers(idPerr)}
+          placeholder="Ingrese los litros del día"
+          onChangeText={litrosDiaa => saveLitrosDia(litrosDiaa)}
           autoCompleteType={undefined}
         />
 
-        <Text style={styles.insText}>Cantidad:</Text>
+        <Text style={styles.insText}>Litros Totales:</Text>
         <Input
-          value={cantidad}
+          value={litrosTotal}
           style={styles.input}
-          placeholder="Ingrese la cantidad"
-          onChangeText={cantidadd => saveCantidad(cantidadd)}
+          placeholder="Ingrese los litros totales"
+          onChangeText={litrosTotaless => saveLitrosTotales(litrosTotaless)}
           autoCompleteType={undefined}
         />
 
-        <Text style={styles.insText}>Precio:</Text>
+        <Text style={styles.insText}>Huevos del Día:</Text>
         <Input
-          value={precio}
+          value={huevosDia}
           style={styles.input}
-          placeholder="Ingrese el precio"
-          onChangeText={estatuss => savePrecio(estatuss)}
+          placeholder="Ingrese la cantidad de huevos del día"
+          onChangeText={huevosDiaa => saveHuevosDia(huevosDiaa)}
           autoCompleteType={undefined}
         />
 
-        <Text style={styles.insText}>Fecha:</Text>
+        <Text style={styles.insText}>Huevos Totales:</Text>
         <Input
-          value={fecha}
+          value={huevosTotal}
           style={styles.input}
-          placeholder="YYYY-MM-DD"
-          onChangeText={fechaa => saveFecha(fechaa)}
+          placeholder="Ingrese la cantidad de huevos totales"
+          onChangeText={huevosTotaless => saveHuevosTotales(huevosTotaless)}
           autoCompleteType={undefined}
         />
 
         <TouchableOpacity style={styles.btn} onPress={() => validoYenvio()}>
-          <Text style={styles.text}>Registrar Compra</Text>
+          <Text style={styles.text}>Registrar Animal</Text>
         </TouchableOpacity>
         <Text> </Text>
         <Text> </Text>
@@ -180,97 +177,99 @@ const CompraInic = () => {
     </SafeAreaView>
   );
 
-  function saveIdProv(idProvv: string) {
-    setIdProv(idProvv);
-    let n: number = parseInt(idProvv);
-    setIdProvf(n);
+  function saveIdTipoAnimal(idTipoAnimm: string) {
+    setIdTipoAnim(idTipoAnimm);
+    let n: number = parseInt(idTipoAnimm);
+    setIdTipoAnimf(n);
   }
 
-  function saveIdProd(idProdd: string) {
-    setIdProd(idProdd);
-    let n: number = parseInt(idProdd);
-    setIdProdf(n);
+  function savePeso(pesoo: string) {
+    setPeso(pesoo);
+    let n: number = parseFloat(pesoo);
+    setPesof(n);
   }
 
-  function savePers(idPerr: string) {
-    setIdPer(idPerr);
-    let n: number = parseInt(idPerr);
-    setidPerf(n);
+  function saveLitrosDia(litrosDiaa:string){
+    setLitrosDia(litrosDiaa)
+    let n:number = parseFloat(litrosDiaa)
+    setLitrosDiaf(n)
   }
 
-  function saveCantidad(cantidadd: string) {
-    setCantidad(cantidadd);
-    let n: number = parseInt(cantidadd);
-    setCantidadf(n);
+  function saveLitrosTotales(litrosTotales:string){
+    setLitrosTotal(litrosTotales)
+    let n:number = parseFloat(litrosTotales)
+    setLitrosTotalf(n)
   }
 
-  function savePrecio(precioo: string) {
-    setPrecio(precioo);
-    let n: number = parseFloat(precioo);
-    setPreciof(n);
+  function saveHuevosDia(huevosDiaa: string) {
+    setHuevosDia(huevosDiaa);
+    let n: number = parseInt(huevosDiaa);
+    setHuevosDiaf(n);
   }
 
-  function saveFecha(fechaa: string) {
-    setFecha(fechaa);
+  function saveHuevosTotales(huevosTotaless: string) {
+    setHuevosTotal(huevosTotaless);
+    let n: number = parseInt(huevosTotaless);
+    setHuevosTotalf(n);
   }
+
 
   function validoYenvio() {
     if (
-      idProv === '' ||
-      idProd === '' ||
-      idPersonal === '' ||
-      cantidad === '' ||
-      precio === '' ||
-      fecha === ''
+      idTipoAnim === '' ||
+      peso === '' ||
+      litrosDia === '' ||
+      litrosTotal === '' ||
+      huevosDia === '' ||
+      huevosTotal === '' 
     ) {
-      setIdProv('');
-      setIdProd('');
-      setIdPer('');
-      setCantidad('');
-      setPrecio('');
-      setFecha('');
+      setIdTipoAnim('');
+      setPeso('');
+      setLitrosDia('');
+      setHuevosTotal('')
+      setLitrosTotal('');
+      setHuevosDia('');
       setModalVisible1(true);
     } else {
-      if (!isNaN(idProvf) && !isNaN(idProdf) && !isNaN(idPersonalf) && !isNaN(cantidadf) && !isNaN(preciof)) {
-        fetch(`https://rancho.onrender.com/compras/create-compra`, {
+      if (!isNaN(idTipoAnimf) && !isNaN(pesof) && !isNaN(litrosDiaf) && !isNaN(litrosTotalf) && !isNaN(huevosDiaf) && !isNaN(huevosTotalf)) {
+        fetch(`https://rancho.onrender.com/tipoAnimales/create-tipo_animal`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',
             'Content-type': 'application/json',
           },
           body: JSON.stringify({
-            id_Proveedor: idProvf,
-            id_Producto: idProdf,
-            id_Personal: idPersonalf,
-            Cantidad: cantidadf,
-            Precio_Unitario: preciof,
-            Fecha: fecha,
+            id_Tipo_Animal: idTipoAnimf,
+            Peso: pesof,
+            Litros_Dia: litrosDiaf,
+            Litros_Total: litrosTotalf,
+            Huevos_Dia: huevosDiaf,
+            Huevos_Total: huevosTotal,
           }),
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log(responseJson);
-            if (responseJson.ok) {
-              console.log('Validado');
-              navigation.navigate('Admin' as never);
+            if(responseJson.ok){
               setModalVisible2(true);
-            } else {
+              navigation.navigate('Personal' as never);
+            }else{
               msg = responseJson.msg
-              setModalVisible4(true);
-              navigation.navigate('Admin' as never);
+              setModalVisible4(true)
+              navigation.navigate('Personal' as never)
             }
+
           })
           .catch(error => {
             console.log(error);
           });
       } else {
         setModalVisible3(true);
-        setIdProv('');
-        setIdProd('');
-        setIdPer('');
-        setCantidad('');
-        setPrecio('');
-        setFecha('');
+        setIdTipoAnim('');
+        setPeso('');
+        setLitrosDia('');
+        setLitrosTotal('');
+        setHuevosDia('');
       }
     }
   }
@@ -356,4 +355,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CompraInic;
+export default AnimalInic;

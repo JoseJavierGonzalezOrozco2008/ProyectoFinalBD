@@ -132,7 +132,7 @@ const ElimAct_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idAlif) && idAlif != 0){
-                fetch(`http://${ip}/delete-activity/id:` + idAlif,{
+                fetch(`https://rancho.onrender.com/delete-activity/id:` + idAlif,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())

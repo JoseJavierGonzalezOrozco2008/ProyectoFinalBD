@@ -188,7 +188,7 @@ const RegProv2 = () => {
                 setModalVisible3(true)
             }else{
                 
-                fetch('http://172.16.115.112:3000/proveedores/create-proveedor',{
+                fetch('https://rancho.onrender.com/proveedores/create-proveedor',{
                     method: 'POST',
                     headers:{
                         'Accept': 'application/json',
@@ -381,7 +381,7 @@ const RegistrarProveedor_Screen = () => {
         setModalVisible1(true)
     }else{
         if(!isNaN(cpf)){
-            fetch('http://172.16.115.112:3000/direcciones/create-direccion',{
+            fetch('https://rancho.onrender.com/direcciones/create-direccion',{
                 method: 'POST',
                 headers:{
                   'Accept': 'application/json',

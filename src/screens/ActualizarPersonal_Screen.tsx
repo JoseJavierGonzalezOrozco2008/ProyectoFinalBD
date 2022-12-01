@@ -247,7 +247,7 @@ const ActualizarPersonal_Screen = () => {
     } else {
       if (!isNaN(idPersonalf) && idPersonalf != 0 && !isNaN(idActividadf) && idActividadf != 0 && !isNaN(idMaterialf) && idMaterialf != 0 && estatus.length === 1) {
         console.log('funcion')
-        fetch(`http://${ip}/personal/update-persona/` + idPersonalf, {
+        fetch(`https://rancho.onrender.com/personal/update-persona/` + idPersonalf, {
           method: 'PUT',
           headers: {
             'Content-type': 'application/json',

@@ -10,7 +10,7 @@ function useDatos() {
     const [info, setInfo] = useState<any[]>([])
    
     useEffect(() => {
-      fetch(`http://${ip}/ventas/get-ventas`)
+      fetch(`https://rancho.onrender.com/ventas/get-ventas`)
         .then(response => response.json())
         .then(datos => {
           setInfo(datos)

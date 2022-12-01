@@ -131,7 +131,7 @@ const ElimVenta_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idVentaf) && idVentaf != 0){
-                fetch(`http://${ip}/tipoAnimales/delete-tipo_animal/` + idVentaf,{
+                fetch(`https://rancho.onrender.com/tipoAnimales/delete-tipo_animal/` + idVentaf,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())

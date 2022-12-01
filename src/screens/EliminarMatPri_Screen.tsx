@@ -131,7 +131,7 @@ const ElimMatPri_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idMatPf) && idMatPf != 0){
-                fetch(`http://${ip}/delete-materia/id:` + idMatPf,{
+                fetch(`https://rancho.onrender.com/delete-materia/id:` + idMatPf,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())

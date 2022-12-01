@@ -10,9 +10,10 @@ function useDatos() {
     const [info, setInfo] = useState<any[]>([])
    
     useEffect(() => {
-      fetch(`http://${ip}/activities/get-activities`)
+      fetch(`https://rancho.onrender.com/activities/get-activities`)
         .then(response => response.json())
         .then(datos => {
+          console.log(datos)
           setInfo(datos)
         })
     }, [])
@@ -38,7 +39,7 @@ const ConsultarActividadCompleto = () => {
           <Table borderStyle={{borderWidth: 1, borderColor: 'black', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
             <Row data={header} style={{height: 90, backgroundColor: 'gray'}} textStyle={{color: 'white',textAlign: 'center'}}/> 
             {datos.map(item =>(
-                <Row key={item.id} data={[item.id, item.Nombre,item.Descripcion]} style={{height: 90, backgroundColor: 'white'}} textStyle={{color: 'black',textAlign: 'center'}} /> 
+                <Row key={item.id} data={[item.id, item.nombre,item.descripcion]} style={{height: 90, backgroundColor: 'white'}} textStyle={{color: 'black',textAlign: 'center'}} /> 
             ))}
           
           </Table> 

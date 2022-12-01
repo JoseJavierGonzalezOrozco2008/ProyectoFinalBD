@@ -131,7 +131,7 @@ const ElimPersonal_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idPerf) && idPerf != 0){
-                fetch(`http://${ip}/personal/delete-persona/` + idPerf,{
+                fetch(`https://rancho.onrender.com/personal/delete-persona/` + idPerf,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())

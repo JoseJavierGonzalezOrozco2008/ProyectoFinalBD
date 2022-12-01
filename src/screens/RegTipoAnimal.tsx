@@ -242,7 +242,7 @@ const TipoAnimalInic = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idAlimentof) && !isNaN(idAlimVentaf) && !isNaN(idPersonalf) && comida.length === 1) {
-        fetch(`http://${ip}/tipoAnimales/create-tipo_animal`, {
+        fetch(`https://rancho.onrender.com/tipoAnimales/create-tipo_animal`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',

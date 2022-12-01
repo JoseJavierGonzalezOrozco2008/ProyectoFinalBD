@@ -283,7 +283,7 @@ const PersonalInic = () => {
         setModalVisible3(true);
       } else {
         if (!isNaN(idActf) && !isNaN(idMatf) && !isNaN(salariof) && !isNaN(turnof)) {
-          fetch(`http://${ip}/personal/create-persona`, {
+          fetch(`https://rancho.onrender.com/personal/create-persona`, {
             method: 'POST',
             headers: {
               Accept: 'application/json',

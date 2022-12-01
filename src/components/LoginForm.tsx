@@ -9,7 +9,8 @@ import { getNameAdm, getPuestoAdm } from '../screens/Admin_Screen';
 
 const ip = '192.168.8.6:3000';
 
-
+let msg:string = ""
+let err:string = ""
 const LoginForm = () => {
   const [showPassword, setshowPassword] = useState(false)
 
@@ -46,7 +47,7 @@ function validarVacio(){
     //Alert.alert("Rellene los campos")
     setModalVisible3(true)
   }else{
-    fetch(`http://${ip}/scripts/validar-usuario`,{
+    fetch("http://192.168.8.6:3000/scripts/validar-usuario",{
       method: 'POST',
       headers:{
         'Accept': 'application/json',
@@ -59,9 +60,9 @@ function validarVacio(){
     })
     .then((respuesta) => respuesta.json())
     .then(async (responseJson) =>{
-      console.log(responseJson.nombre);
+      console.log(responseJson);
       if(responseJson.ok){
-        if(responseJson.puesto === 'Personal'){
+        if(responseJson.puesto === 'Empleado'){
           AsyncStorage.setItem('puesto', JSON.stringify(responseJson.puesto))
           const puestoP= JSON.stringify(responseJson.puesto);
           getPuestoPer(responseJson.puesto)
@@ -71,7 +72,7 @@ function validarVacio(){
           navigation.navigate('Personal' as never);
           setUser('')
           setPassw('')
-        }else if(responseJson.puesto === 'Administrador'){
+        }else if(responseJson.puesto === 'Jefe' || responseJson.puesto === 'Administrador'){
           //Necesito otra Screen
           AsyncStorage.setItem('puesto', JSON.stringify(responseJson.puesto))
           const puestoP= await AsyncStorage.getItem('puesto')
@@ -83,7 +84,8 @@ function validarVacio(){
           setUser('')
           setPassw('')        }
       }else if(!responseJson.ok){
-        ret = responseJson.msg;
+        msg = responseJson.msg;
+        err = responseJson.err
         setModalVisible4(true);
         setUser('')
         setPassw('')
@@ -141,7 +143,8 @@ function validarVacio(){
       </Modal>
       <Modal animationType='slide' visible={modalVisible4}>
           <View style={styles.modal}>
-            <Text style={styles.modalText}>{ret}</Text>
+            <Text style={styles.modalText}>{msg}</Text>
+            <Text style={styles.modalText}>{err}</Text>
             <Image source={require("../../assets/cow.png")}  resizeMode='contain' style={styles.Image}/>
             <Button title="Entendido" onPress = {() => {  
                   setModalVisible4(false)}}/> 

@@ -125,7 +125,7 @@ const ConsultarDireccion_Screen = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idDireccionf) && idDireccionf != 0) {
-        fetch(`http://${ip}/direcciones/get-dataDireccion/` + idDireccionf, {
+        fetch(`https://rancho.onrender.com/direcciones/get-dataDireccion/` + idDireccionf, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())

@@ -178,7 +178,7 @@ const ActualizarAlimentoVenta_Screen = () => {
     } else {
       if (!isNaN(idAlimVentaf) && idAlimVentaf != 0) {
         console.log('funcion')
-        fetch(`http://${ip}/alimentoVenta/update-alimento/` + idAlimVentaf, {
+        fetch(`https://rancho.onrender.com/alimentoVenta/update-alimento/` + idAlimVentaf, {
           method: 'PUT',
           headers: {
             'Content-type': 'application/json',

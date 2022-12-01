@@ -140,7 +140,7 @@ const RegistrarActividad_Screen = () => {
 
       setModalVisible1(true);
     } else {
-      fetch(`http://${ip}/activities/create-activity`, {
+      fetch(`https://rancho.onrender.com/activities/create-activity`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
