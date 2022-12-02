@@ -207,6 +207,15 @@ const Existencias = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('ConsClienteAdmin' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsClienteAdmin.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
         <Text> </Text>
         <Text> </Text>
         <Text> </Text>

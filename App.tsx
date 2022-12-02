@@ -44,6 +44,7 @@ import TipoAnimalInic from './src/screens/RegTipoAnimal';
 import AnimalInic from './src/screens/RegAnimalPer_Screen';
 import ConsultarClientesCompleto from './src/screens/ConsultarClientesCompleto_Screen';
 import ActClienteInic from './src/screens/ActualizarCliente_Screen';
+import ConsClientesAdminInic from './src/screens/ConsultarClienteAdmin_Screen';
 
 const Stack = createStackNavigator();
 
@@ -97,6 +98,7 @@ const App = () => {
                 <Stack.Screen name='RegAnimal' component={AnimalInic}/> 
                 <Stack.Screen name='ConsClientesCompl' component={ConsultarClientesCompleto}/> 
                 <Stack.Screen name='ActCliente' component={ActClienteInic}/> 
+                <Stack.Screen name='ConsClienteAdmin' component={ConsClientesAdminInic}/> 
 
                 
                 

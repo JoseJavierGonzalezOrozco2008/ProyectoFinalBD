@@ -47,7 +47,7 @@ function validarVacio(){
     //Alert.alert("Rellene los campos")
     setModalVisible3(true)
   }else{
-    fetch("https://rancho.onrender.com/scripts/validar-usuario/",{
+    fetch("https://rancho.onrender.com/scripts/login/",{
       method: 'POST',
       headers:{
         'Accept': 'application/json',
