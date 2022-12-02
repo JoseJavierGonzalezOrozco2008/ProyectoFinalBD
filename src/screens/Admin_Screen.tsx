@@ -277,6 +277,13 @@ const Actualizar = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ActProveedor' as never)}>
+          <Image
+            source={require('../../assets/secciones/ActProveedor.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
         <Text> </Text>
         <Text> </Text>
       </View>
