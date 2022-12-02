@@ -46,6 +46,8 @@ import ConsultarClientesCompleto from './src/screens/ConsultarClientesCompleto_S
 import ActClienteInic from './src/screens/ActualizarCliente_Screen';
 import ConsClientesAdminInic from './src/screens/ConsultarClienteAdmin_Screen';
 import ConsAlimVentaAdminInic from './src/screens/ConsAlimVentaAdmin';
+import ConsultarMateriaPrimaAdmin from './src/screens/ConsultarMateriaPrimaAdmin_Screen';
+import ConsultarMateriaPrimaPersonal from './src/screens/ConsultarMatPrimPersonal_Screen';
 
 const Stack = createStackNavigator();
 
@@ -101,6 +103,8 @@ const App = () => {
                 <Stack.Screen name='ActCliente' component={ActClienteInic}/> 
                 <Stack.Screen name='ConsClienteAdmin' component={ConsClientesAdminInic}/> 
                 <Stack.Screen name='ConsAlimVentaAdmin' component={ConsAlimVentaAdminInic}/> 
+                <Stack.Screen name='ConsMatPrimAdmin' component={ConsultarMateriaPrimaAdmin}/> 
+                <Stack.Screen name='ConsMatPrimPersonal' component={ConsultarMateriaPrimaPersonal}/> 
 
                 
                 

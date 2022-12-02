@@ -161,7 +161,7 @@ const Existencias = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
-        <TouchableOpacity style={styles.button2}>
+        <TouchableOpacity style={styles.button2}  onPress={() => navigation.navigate('ConsMatPrimAdmin' as never)}>
           <Image
             source={require('../../assets/secciones/ConsMateria.jpg')}
             style={styles.image}

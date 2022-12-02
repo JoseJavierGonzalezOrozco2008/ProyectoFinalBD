@@ -155,6 +155,13 @@ const Animales = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
+        <TouchableOpacity style={styles.button2}  onPress={() => navigation.navigate('ConsMatPrimPersonal' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsMateria.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
         <Text> </Text>
         <Text> </Text>
       </View>
