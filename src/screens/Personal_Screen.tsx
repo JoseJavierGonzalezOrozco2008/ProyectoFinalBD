@@ -52,34 +52,46 @@ const Tab = createBottomTabNavigator();
 const Ventas = () => {
   const navigation = useNavigation();
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('ConsVentasCompleto' as never)}>
-        <Image
-          source={require('../../assets/secciones/ConsultaCompVentas.jpg')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
-      <Text> </Text>
-      <TouchableOpacity
-        style={styles.button2}
-        onPress={() => navigation.navigate('RegVenta' as never)}>
-        <Image
-          source={require('../../assets/secciones/venta.jpg')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
-      <Text> </Text>
-      <TouchableOpacity
-        style={styles.button3}
-        onPress={() => navigation.navigate('ConsAlmacen' as never)}>
-        <Image
-          source={require('../../assets/secciones/almacen.jpg')}
-          style={styles.image}
-        />
-      </TouchableOpacity>
-    </View>
+    <ScrollView style={styles.scroll}>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ConsVentasCompleto' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsultaCompVentas.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+        <TouchableOpacity
+          style={styles.button2}
+          onPress={() => navigation.navigate('RegVenta' as never)}>
+          <Image
+            source={require('../../assets/secciones/venta.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('ConsAlmacen' as never)}>
+          <Image
+            source={require('../../assets/secciones/almacen.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('ConsClientesCompl' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsCliente.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -106,7 +118,9 @@ const Animales = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
-        <TouchableOpacity style={styles.button3}  onPress={() => navigation.navigate('RegAnimal' as never)}>
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('RegAnimal' as never)}>
           <Image
             source={require('../../assets/secciones/nuevo.png')}
             style={styles.image}
@@ -207,7 +221,6 @@ const AppTab = () => {
       <Tab.Screen name="Usuario" component={Usuario} />
       <Tab.Screen name="Ventas" component={Ventas} />
       <Tab.Screen name="Animales" component={Animales} />
-
     </Tab.Navigator>
   );
 };
