@@ -48,6 +48,7 @@ import ConsClientesAdminInic from './src/screens/ConsultarClienteAdmin_Screen';
 import ConsAlimVentaAdminInic from './src/screens/ConsAlimVentaAdmin';
 import ConsultarMateriaPrimaAdmin from './src/screens/ConsultarMateriaPrimaAdmin_Screen';
 import ConsultarMateriaPrimaPersonal from './src/screens/ConsultarMatPrimPersonal_Screen';
+import ActDireccionInic from './src/screens/ActualizarDireccion_Screen';
 
 const Stack = createStackNavigator();
 
@@ -105,6 +106,7 @@ const App = () => {
                 <Stack.Screen name='ConsAlimVentaAdmin' component={ConsAlimVentaAdminInic}/> 
                 <Stack.Screen name='ConsMatPrimAdmin' component={ConsultarMateriaPrimaAdmin}/> 
                 <Stack.Screen name='ConsMatPrimPersonal' component={ConsultarMateriaPrimaPersonal}/> 
+                <Stack.Screen name='ActDireccion' component={ActDireccionInic}/> 
 
                 
                 
