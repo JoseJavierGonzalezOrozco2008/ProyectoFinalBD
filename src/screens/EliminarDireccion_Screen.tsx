@@ -14,12 +14,12 @@ import {
 import {Input} from 'react-native-elements';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-interface RoutesProps {}
 
 const Stack = createStackNavigator();
 
 const ip = '172.16.115.112:3000';
 
+let msg:string = ""
 
 const ElimDireccion_Screen = () => {
 
@@ -72,7 +72,7 @@ const ElimDireccion_Screen = () => {
             </Modal>
             <Modal animationType="slide" visible={modalVisible3}>
               <View style={styles.modal}>
-                <Text style={styles.modalText}>¡Upps... Algo salió mal!</Text>
+                <Text style={styles.modalText}>{msg}</Text>
                 <Image
                   source={require('../../assets/cow2.jpg')}
                   resizeMode="contain"
@@ -88,7 +88,7 @@ const ElimDireccion_Screen = () => {
             </Modal>
             <Modal animationType="slide" visible={modalVisible4}>
                 <View style={styles.modal2}>
-                  <Text style={styles.modalText}>¡Registro Eliminado Exitosamente!</Text>
+                  <Text style={styles.modalText}>{msg}</Text>
                   <Image
                     source={require('../../assets/pig.jpg')}
                     resizeMode="contain"
@@ -137,9 +137,11 @@ const ElimDireccion_Screen = () => {
                   .then((respuesta) => respuesta.json())
                   .then(responseJson =>{
                       if(responseJson.ok){
-                        navigation.navigate('Admin' as never)
+                        msg = responseJson.msg
                         setModalVisible4(true)
+                        navigation.navigate('Admin' as never)
                       }else{
+                        msg = responseJson.msg
                         setModalVisible3(true)
                       }
                    })
