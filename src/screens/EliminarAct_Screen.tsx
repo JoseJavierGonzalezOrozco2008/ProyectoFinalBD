@@ -32,8 +32,8 @@ const ElimAct_Screen = () => {
   const [modalVisible4, setModalVisible4] = useState(false);
 
 
-  const [idAli, setIdAl] = useState('');
-  const [idAlif, setIdAlf] = useState(0);
+  const [idAct, setIdAct] = useState('');
+  const [idActf, setIdActf] = useState(0);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -106,7 +106,7 @@ const ElimAct_Screen = () => {
             <Text style={styles.txtTitle}>Eliminar Actividad</Text>
             <Text style={styles.insText}>Ingrese el ID de la actividad a eliminar:</Text>
             <Input
-              value={idAli}
+              value={idAct}
               style={styles.input}
               placeholder="Ingrese el ID"
               onChangeText={idd => saveID(idd)}
@@ -125,14 +125,14 @@ const ElimAct_Screen = () => {
       );
 
       function validoYenvio() {
-        if (idAli === '' ) {
+        if (idAct === '' ) {
             
-            setIdAl('')
+            setIdAct('')
     
             setModalVisible1(true)
         }else{
-            if(!isNaN(idAlif) && idAlif != 0){
-                fetch(`https://rancho.onrender.com/delete-activity/id:` + idAlif,{
+            if(!isNaN(idActf) && idActf != 0){
+                fetch(`https://rancho.onrender.com/delete-activity/` + idActf,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())
@@ -147,22 +147,22 @@ const ElimAct_Screen = () => {
                       }
                    })
                    .catch(error =>{
-                        setIdAl('')
-                        setIdAlf(0)
+                        setIdAct('')
+                        setIdActf(0)
                         console.log(error)
                    })
                   
             }else{
-                setIdAl('')
-                setIdAlf(0)
+                setIdAct('')
+                setIdActf(0)
                 setModalVisible2(true)
             }
         }
       }
       function saveID(idd: string) {
-        setIdAl(idd);
+        setIdAct(idd);
         let n: number = parseInt(idd);
-        setIdAlf(n);
+        setIdActf(n);
     
       }
 };

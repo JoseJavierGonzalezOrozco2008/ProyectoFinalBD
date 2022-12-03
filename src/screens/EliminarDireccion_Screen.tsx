@@ -131,7 +131,7 @@ const ElimDireccion_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idDirf) && idDirf != 0){
-                fetch(`https://rancho.onrender.com/delete-direccion/id:` + idDirf,{
+                fetch(`https://rancho.onrender.com/delete-direccion/` + idDirf,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())
