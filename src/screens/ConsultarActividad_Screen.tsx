@@ -24,6 +24,7 @@ let id: any;
 let nombre: any;
 let descripcion: any;
 
+let msg:string = ""
 
 const ConsultarActividad_Screen = () => {
   const navigation = useNavigation();
@@ -75,9 +76,9 @@ const ConsultarActividad_Screen = () => {
         </Modal>
         <Modal animationType="slide" visible={modalVisible3}>
           <View style={styles.modal}>
-            <Text style={styles.modalText}>¡Upps... Algo salió mal!</Text>
+            <Text style={styles.modalText}>{msg}</Text>
             <Image
-              source={require('../../assets/cow.png')}
+              source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
               style={styles.Image}
             />
@@ -125,11 +126,17 @@ const ConsultarActividad_Screen = () => {
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log('Entré ', responseJson);
-            id = responseJson.obj.id;
-            nombre = responseJson.obj.nombre;
-            descripcion = responseJson.obj.descripcion;
+            if(!responseJson.ok){
+              msg = responseJson.msg
+              setModalVisible3(true)
+            }else{
+              id = responseJson.obj.id;
+              nombre = responseJson.obj.nombre;
+              descripcion = responseJson.obj.descripcion;
+  
+              navigation.navigate('resConsAct' as never);
+            }
 
-            navigation.navigate('resConsAct' as never);
           })
           .catch(error => {
             setIdAct('');

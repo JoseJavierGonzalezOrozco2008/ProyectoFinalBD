@@ -28,7 +28,7 @@ let nombre: any;
 let cantidad: any;
 let precio: any;
 let comida: any;
-
+let msg: string = ""
 const ConsultarTipoAnimal_Screen = () => {
   const navigation = useNavigation();
 
@@ -79,7 +79,7 @@ const ConsultarTipoAnimal_Screen = () => {
         </Modal>
         <Modal animationType="slide" visible={modalVisible3}>
           <View style={styles.modal}>
-            <Text style={styles.modalText}>¡Upps... Algo salió mal!</Text>
+            <Text style={styles.modalText}>{msg}</Text>
             <Image
               source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
@@ -129,17 +129,22 @@ const ConsultarTipoAnimal_Screen = () => {
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log('Entré ', responseJson);
-            console.log(responseJson.length);
-            id = responseJson[0].id;
-            id_Alimento = responseJson[0].id_Alimento;
-            idAlimentoVenta = responseJson[0].id_Alimento_Venta;
-            id_Personal = responseJson[0].id_Personal;
-            nombre = responseJson[0].Nombre;
-            cantidad = responseJson[0].Cantidad;
-            precio = responseJson[0].Precio;
-            comida = responseJson[0].Comida;
+            if(responseJson.ok === false){
+              msg = responseJson.msg
+            }else{
+              console.log(responseJson.length);
+              id = responseJson[0].id;
+              id_Alimento = responseJson[0].id_Alimento;
+              idAlimentoVenta = responseJson[0].id_Alimento_Venta;
+              id_Personal = responseJson[0].id_Personal;
+              nombre = responseJson[0].Nombre;
+              cantidad = responseJson[0].Cantidad;
+              precio = responseJson[0].Precio;
+              comida = responseJson[0].Comida;
+  
+              navigation.navigate('resConsTipAnim' as never);
+            }
 
-            navigation.navigate('resConsTipAnim' as never);
           })
           .catch(error => {
             setIdTipoAnim('');

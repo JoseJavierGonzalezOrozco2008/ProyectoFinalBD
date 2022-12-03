@@ -122,18 +122,24 @@ const ConsultarAlimentoAnimal_Screen = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idAlimAnimf) && idAlimAnimf != 0) {
-        fetch(`http://rancho.onrender.com/alimentoAnimal/get-dataAlimento/` + idAlimAnimf, {
+        fetch(`https://rancho.onrender.com/alimentoAnimal/get-dataAlimento/` + idAlimAnimf, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log('Entré ', responseJson);
-            id = responseJson[0].id;
-            nombre = responseJson[0].Nombre;
-            descripcion = responseJson[0].Descripcion;
-            cantidad = responseJson[0].Cantidad;
-            tipoUnidad = responseJson[0].TipoUnidad
-            navigation.navigate('resConsAclimAnim' as never);
+            if(responseJson.ok === false){
+              msg = responseJson.msg
+              setModalVisible3(true)
+            }else{
+              id = responseJson[0].id;
+              nombre = responseJson[0].Nombre;
+              descripcion = responseJson[0].Descripcion;
+              cantidad = responseJson[0].Cantidad;
+              tipoUnidad = responseJson[0].TipoUnidad
+              navigation.navigate('resConsAclimAnim' as never);
+            }
+
           })
           .catch(error => {
             setIdAlimAnim('');

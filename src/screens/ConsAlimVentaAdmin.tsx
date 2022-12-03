@@ -128,12 +128,19 @@ const ConsultarAlimentoVenta_Screen = () => {
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log('Entré ', responseJson);
-            id = responseJson[0].id;
-            nombre = responseJson[0].Nombre;
-            precioUnitario = responseJson[0].PrecioUnitario;
-            cantidad = responseJson[0].Cantidad;
-            tipoUnidad = responseJson[0].TipoUnidad
-            navigation.navigate('resConsAlimVenta' as never);
+
+            if(responseJson.ok === false){
+              msg = responseJson.msg
+              setModalVisible3(true)
+            }else{
+              id = responseJson[0].id;
+              nombre = responseJson[0].Nombre;
+              precioUnitario = responseJson[0].PrecioUnitario;
+              cantidad = responseJson[0].Cantidad;
+              tipoUnidad = responseJson[0].TipoUnidad
+              navigation.navigate('resConsAlimVenta' as never);
+            }
+ 
           })
           .catch(error => {
             setIdAlimVenta('');
