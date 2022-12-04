@@ -232,7 +232,7 @@ const CompraInic = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idProvf) && !isNaN(idProdf) && !isNaN(idPersonalf) && !isNaN(cantidadf) && !isNaN(preciof)) {
-        fetch(`https://rancho.onrender.com/compras/create-compra`, {
+        fetch(`http://${ip}/compras/create-compra`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',

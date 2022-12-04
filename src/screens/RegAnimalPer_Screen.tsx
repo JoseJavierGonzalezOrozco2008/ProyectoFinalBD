@@ -231,7 +231,7 @@ const AnimalInic = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idTipoAnimf) && !isNaN(pesof) && !isNaN(litrosDiaf) && !isNaN(litrosTotalf) && !isNaN(huevosDiaf) && !isNaN(huevosTotalf)) {
-        fetch(`https://rancho.onrender.com/animales/create-animal`, {
+        fetch(`http://${ip}/animales/create-animal`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',

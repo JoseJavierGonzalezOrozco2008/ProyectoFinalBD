@@ -171,7 +171,7 @@ const RegCliente = () => {
                 setModalVisible3(true)
             }else{
                 
-                fetch(`https://rancho.onrender.com/clientes/create-cliente`,{
+                fetch(`http://${ip}/clientes/create-cliente`,{
                     method: 'POST',
                     headers:{
                         'Accept': 'application/json',
@@ -361,7 +361,7 @@ const RegistrarCliente_Screen = () => {
         setModalVisible1(true)
     }else{
         if(!isNaN(cpf)){
-            fetch(`https://rancho.onrender.com/direcciones/create-direccion`,{
+            fetch(`http://${ip}/direcciones/create-direccion`,{
                 method: 'POST',
                 headers:{
                   'Accept': 'application/json',

@@ -21,6 +21,7 @@ let id: String;
 
 let msg:string = ""
 
+const ip:string = "192.168.8.7"
 const RegProv2 = () => {
 
   const navigation = useNavigation();
@@ -381,7 +382,7 @@ const RegistrarProveedor_Screen = () => {
         setModalVisible1(true)
     }else{
         if(!isNaN(cpf)){
-            fetch('https://rancho.onrender.com/direcciones/create-direccion',{
+            fetch(`http://${ip}/direcciones/create-direccion`,{
                 method: 'POST',
                 headers:{
                   'Accept': 'application/json',

@@ -124,7 +124,7 @@ const ConsultarAnimal_Screen = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idAnimalf) && idAnimalf != 0) {
-        fetch(`https://rancho.onrender.com/animales/get-animal/` + idAnimalf, {
+        fetch(`http://${ip}/animales/get-animal/` + idAnimalf, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())

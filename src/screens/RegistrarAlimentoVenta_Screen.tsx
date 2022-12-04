@@ -166,7 +166,7 @@ const RegistrarAlimentoVenta_Screen = () => {
         setModalVisible1(true)
     }else{
         if(!isNaN(cantidadf) && !isNaN(precioUf)){
-            fetch(`https://rancho.onrender.com/alimentoVenta/create-alimento`,{
+            fetch(`http://${ip}/alimentoVenta/create-alimento`,{
                 method: 'POST',
                 headers:{
                   'Accept': 'application/json',

@@ -131,7 +131,7 @@ const ElimProveedor_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idProf) && idProf != 0){
-                fetch(`https://rancho.onrender.com/proveedores/delete-proveedor/` + idProf,{
+                fetch(`http://${ip}/proveedores/delete-proveedor/` + idProf,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())

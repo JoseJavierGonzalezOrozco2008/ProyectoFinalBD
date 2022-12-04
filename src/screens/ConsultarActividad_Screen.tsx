@@ -120,7 +120,7 @@ const ConsultarActividad_Screen = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idActividadf) && idActividadf != 0) {
-        fetch(`https://rancho.onrender.com/activities/get-activity/` + idActividadf, {
+        fetch(`http://${ip}/activities/get-activity/` + idActividadf, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())

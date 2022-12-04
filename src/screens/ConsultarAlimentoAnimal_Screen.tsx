@@ -122,7 +122,7 @@ const ConsultarAlimentoAnimal_Screen = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idAlimAnimf) && idAlimAnimf != 0) {
-        fetch(`https://rancho.onrender.com/alimentoAnimal/get-dataAlimento/` + idAlimAnimf, {
+        fetch(`http://${ip}/alimentoAnimal/get-dataAlimento/` + idAlimAnimf, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())

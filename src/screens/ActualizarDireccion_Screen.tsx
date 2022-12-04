@@ -238,7 +238,7 @@ const ActualizarDireccion_Screen = () => {
     } else {
       if (!isNaN(idDireccionf) && idDireccionf != 0 && !isNaN(CPf)) {
         console.log('funcion')
-        fetch(`https://rancho.onrender.com/direcciones/update-direccion/` + idDireccionf, {
+        fetch(`http://${ip}/direcciones/update-direccion/` + idDireccionf, {
           method: 'PUT',
           headers: {
             'Content-type': 'application/json',

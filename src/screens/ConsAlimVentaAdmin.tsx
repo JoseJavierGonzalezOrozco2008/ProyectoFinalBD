@@ -122,7 +122,7 @@ const ConsultarAlimentoVenta_Screen = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idAlimVentaf) && idAlimVentaf != 0) {
-        fetch(`https://rancho.onrender.com/alimentoVenta/get-dataAlimento/` + idAlimVentaf, {
+        fetch(`http://${ip}/alimentoVenta/get-dataAlimento/` + idAlimVentaf, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())

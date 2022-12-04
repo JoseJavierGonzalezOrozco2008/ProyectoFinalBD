@@ -7,7 +7,7 @@ import { getNamePer, getPuestoPer, Usuario } from '../screens/Personal_Screen';
 import { getNameAdm, getPuestoAdm } from '../screens/Admin_Screen';
 
 
-const ip = '192.168.8.6:3000';
+const ip = '192.168.8.7:3000';
 
 let msg:string = ""
 let err:string = ""
@@ -47,7 +47,7 @@ function validarVacio(){
     //Alert.alert("Rellene los campos")
     setModalVisible3(true)
   }else{
-    fetch("https://rancho.onrender.com/scripts/login/",{
+    fetch(`http://${ip}/scripts/validar-usuario/`,{
       method: 'POST',
       headers:{
         'Accept': 'application/json',

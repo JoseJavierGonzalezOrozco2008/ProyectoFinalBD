@@ -123,7 +123,7 @@ const ConsultarCliente_Screen = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idClientef) && idClientef != 0) {
-        fetch(`https://rancho.onrender.com/clientes/get-dataCliente/` + idClientef, {
+        fetch(`http://${ip}/clientes/get-dataCliente/` + idClientef, {
           method: 'GET',
         })
           .then(respuesta => respuesta.json())

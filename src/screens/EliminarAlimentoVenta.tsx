@@ -132,7 +132,7 @@ const ElimAlimVen_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idAlimVenf) && idAlimVenf != 0){
-                fetch(`https://rancho.onrender.com/alimentoVenta/delete-alimento/` + idAlimVenf,{
+                fetch(`http://${ip}/alimentoVenta/delete-alimento/` + idAlimVenf,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())

@@ -175,7 +175,7 @@ const ActualizarCliente_Screen = () => {
     } else {
       if (!isNaN(idClientef) && idClientef != 0) {
         console.log('funcion')
-        fetch(`https://rancho.onrender.com/clientes/update-cliente/` + idClientef, {
+        fetch(`http://${ip}/clientes/update-cliente/` + idClientef, {
           method: 'PUT',
           headers: {
             'Content-type': 'application/json',

@@ -131,7 +131,7 @@ const ElimCompra_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idCompraf) && idCompraf != 0){
-                fetch(`https://rancho.onrender.com/compras/delete-compra/` + idCompraf,{
+                fetch(`http://${ip}/compras/delete-compra/` + idCompraf,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())

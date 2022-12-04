@@ -131,7 +131,7 @@ const ElimCliente_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idClientef) && idClientef != 0){
-                fetch(`https://rancho.onrender.com/clientes/delete-cliente/` + idClientef,{
+                fetch(`http://${ip}/clientes/delete-cliente/` + idClientef,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())

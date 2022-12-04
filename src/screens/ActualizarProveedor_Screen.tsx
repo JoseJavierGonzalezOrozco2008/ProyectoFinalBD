@@ -208,7 +208,7 @@ const ActualizarProveedor_Screen = () => {
     } else {
       if (!isNaN(idProveedorf) && idProveedorf != 0) {
         console.log('funcion')
-        fetch(`https://rancho.onrender.com/proveedores/update-proveedor/` + idProveedorf, {
+        fetch(`http://${ip}/proveedores/update-proveedor/` + idProveedorf, {
           method: 'PUT',
           headers: {
             'Content-type': 'application/json',

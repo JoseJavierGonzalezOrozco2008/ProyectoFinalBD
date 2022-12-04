@@ -4,13 +4,13 @@ import { Row, Rows, Table } from 'react-native-table-component';
 import { useNavigation } from '@react-navigation/core';
 
 
-const ip = '192.168.8.6:3000';
+const ip = '192.168.8.7:3000';
 
 function useDatos() {
     const [info, setInfo] = useState<any[]>([])
    
     useEffect(() => {
-      fetch(`https://rancho.onrender.com/materiaPrima/get-materiasPrimas`)
+      fetch(`http://${ip}/materiaPrima/get-materiasPrimas`)
         .then(response => response.json())
         .then(datos => {
           setInfo(datos)

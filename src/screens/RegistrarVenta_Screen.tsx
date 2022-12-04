@@ -224,7 +224,7 @@ const VentaInic = () => {
       setModalVisible1(true);
     } else {
       if (!isNaN(idClientef) && !isNaN(idProdf) && !isNaN(totalf) && !isNaN(cantidadf) && !isNaN(preciof)) {
-        fetch(`https://rancho.onrender.com/ventas/create-venta`, {
+        fetch(`http://${ip}/ventas/create-venta`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',
