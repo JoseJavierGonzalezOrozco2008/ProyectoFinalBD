@@ -34,6 +34,8 @@ const ActualizarAlimentoVenta_Screen = () => {
   const [modalVisible1, setModalVisible1] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
   const [modalVisible3, setModalVisible3] = useState(false);
+  const [modalVisible4, setModalVisible4] = useState(false);
+
 
   const [idAlimVenta, setIdAlimVenta] = useState('');
   const [idAlimVentaf, setIdAlimVentaf] = useState(0);
@@ -97,6 +99,23 @@ const ActualizarAlimentoVenta_Screen = () => {
               source={require('../../assets/success.jpg')}
               resizeMode="contain"
               style={styles.Image}
+            />
+          </View>
+        </Modal>
+        <Modal animationType="slide" visible={modalVisible4}>
+          <View style={styles.modal}>
+            <Text style={styles.modalText}>{msg}</Text>
+            <Image
+              source={require('../../assets/cow2.jpg')}
+              resizeMode="contain"
+              style={styles.Image}
+            />
+
+            <Button
+              title="Entendido"
+              onPress={() => {
+                setModalVisible4(false);
+              }}
             />
           </View>
         </Modal>
@@ -192,9 +211,15 @@ const ActualizarAlimentoVenta_Screen = () => {
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
-            console.log('Entré ', responseJson);
-            setModalVisible3(true)
-            navigation.navigate('Admin' as never)
+            if(responseJson.ok === false){
+              msg = responseJson.msg
+              setModalVisible4(true)
+            }else{
+              console.log('Entré ', responseJson);
+              setModalVisible3(true)
+              navigation.navigate('Admin' as never)
+            }
+
             
           })
           .catch(error => {
