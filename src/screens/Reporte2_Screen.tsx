@@ -10,7 +10,7 @@ function useDatos() {
     const [info, setInfo] = useState<any[]>([])
    
     useEffect(() => {
-      fetch(`http://${ip}/activities/get-activities`)
+      fetch(`http://${ip}/login/query2`)
         .then(response => response.json())
         .then(datos => {
           console.log(datos)
@@ -23,30 +23,30 @@ function useDatos() {
 
 
 
-const ConsultarActividadCompleto = () => {
+const ConsultarReporte2 = () => {
 
     const navigation = useNavigation();
     const datos = useDatos()
-    const header = ['ID', 'Nombre', 'Descripción']
-
+    const header = ['ID Compra', 'Cantidad','Total']
+    console.log(datos)
     return (
    
         <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scroll}>
           <Text style={styles.txtTitle}>
-            Actividades
+            Compras Mayores a 1000
           </Text>
           <Table borderStyle={{borderWidth: 1, borderColor: 'black', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
             <Row data={header} style={{height: 90, backgroundColor: 'gray'}} textStyle={{color: 'white',textAlign: 'center'}}/> 
             {datos.map(item =>(
-                <Row key={item.id} data={[item.id, item.nombre,item.descripcion]} style={{height: 90, backgroundColor: 'white'}} textStyle={{color: 'black',textAlign: 'center'}} /> 
+                <Row key={item.id_Compra} data={[item.id_Compra, item.Cantidad,item.total]} style={{height: 90, backgroundColor: 'white'}} textStyle={{color: 'black',textAlign: 'center'}} /> 
             ))}
           
           </Table> 
 
 
           <TouchableOpacity
-            style={styles.btn} onPress={() => navigation.navigate('Personal' as never)}>
+            style={styles.btn} onPress={() => navigation.navigate('Admin' as never)}>
             <Text style={styles.text}>Hecho</Text>
           </TouchableOpacity>
   
@@ -141,4 +141,4 @@ const styles = StyleSheet.create({
   });
   
   
-export default ConsultarActividadCompleto
+export default ConsultarReporte2

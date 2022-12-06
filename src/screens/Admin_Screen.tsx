@@ -49,6 +49,8 @@ const Stack = createStackNavigator();
 
 const Tab = createBottomTabNavigator();
 
+
+
 const Registros = () => {
   const navigation = useNavigation();
 
@@ -437,6 +439,65 @@ export const Usuario = ({}: HomeProps) => {
   );
 };
 
+
+const Reportes = () => {
+  const navigation = useNavigation()
+  return (
+    <ScrollView style={styles.scroll}>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Reporte1' as never)}>
+        <Image
+          source={require('../../assets/secciones/reporte1.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
+      <TouchableOpacity
+        style={styles.button2}
+        onPress={() => navigation.navigate('Reporte2' as never)}>
+        <Image
+          source={require('../../assets/secciones/reporte2.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
+      <TouchableOpacity
+        style={styles.button3}
+        onPress={() => navigation.navigate('Reporte3' as never)}>
+        <Image
+          source={require('../../assets/secciones/reporte3.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
+      <TouchableOpacity
+        style={styles.button3}
+        onPress={() => navigation.navigate('Reporte4' as never)}>
+        <Image
+          source={require('../../assets/secciones/reporte4.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Reporte5' as never)}>
+        <Image
+          source={require('../../assets/secciones/reporte5.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
+      <Text> </Text>
+      <Text> </Text>
+      <Text> </Text>
+    </View>
+  </ScrollView>
+  );
+};
+
 const AppTab = () => {
   return (
     <Tab.Navigator
@@ -477,6 +538,13 @@ const AppTab = () => {
                 style={styles.icon}
               />
             );
+          }else if (route.name === 'Reportes') {
+            return (
+              <Image
+                source={require('../../assets/Iconos/reporteIcono.jpg')}
+                style={styles.icon}
+              />
+            );
           }
         },
         headerShown: false,
@@ -488,6 +556,8 @@ const AppTab = () => {
       <Tab.Screen name="Existencias" component={Existencias} />
       <Tab.Screen name="Eliminar" component={Eliminar} />
       <Tab.Screen name="Actualizar" component={Actualizar} />
+      <Tab.Screen name="Reportes" component={Reportes} />
+
 
     </Tab.Navigator>
   );

@@ -52,6 +52,11 @@ import ActDireccionInic from './src/screens/ActualizarDireccion_Screen';
 import ActProveedorInic from './src/screens/ActualizarProveedor_Screen';
 import ConsAlimVentaInic from './src/screens/ConsultarAlimVenta_Screen';
 import ConsultarAlimVentaCompleto from './src/screens/ConsultarAlimVenta_Screen';
+import ConsultarReporte1 from './src/screens/Reporte1_Screen';
+import ConsultarReporte2 from './src/screens/Reporte2_Screen';
+import ConsultarReporte3 from './src/screens/Reporte3_Screen';
+import ConsultarReporte4 from './src/screens/Reporte4_Screen';
+import ConsultarReporte5 from './src/screens/Reporte5_Screen';
 
 const Stack = createStackNavigator();
 
@@ -112,6 +117,11 @@ const App = () => {
                 <Stack.Screen name='ActDireccion' component={ActDireccionInic}/> 
                 <Stack.Screen name='ActProveedor' component={ActProveedorInic}/> 
                 <Stack.Screen name='ConsAlimVenComp' component={ConsultarAlimVentaCompleto}/> 
+                <Stack.Screen name='Reporte1' component={ConsultarReporte1}/> 
+                <Stack.Screen name='Reporte2' component={ConsultarReporte2}/> 
+                <Stack.Screen name='Reporte3' component={ConsultarReporte3}/> 
+                <Stack.Screen name='Reporte4' component={ConsultarReporte4}/> 
+                <Stack.Screen name='Reporte5' component={ConsultarReporte5}/> 
 
                 
                 
