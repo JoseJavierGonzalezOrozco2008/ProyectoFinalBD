@@ -227,6 +227,15 @@ const Existencias = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
+        <TouchableOpacity
+          style={styles.button3}
+          onPress={() => navigation.navigate('ConsProvId' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsProveedor.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
         <Text> </Text>
         <Text> </Text>
         <Text> </Text>

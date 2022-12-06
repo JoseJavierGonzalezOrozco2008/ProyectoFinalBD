@@ -90,6 +90,15 @@ const Ventas = () => {
           />
         </TouchableOpacity>
         <Text> </Text>
+        <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('ConsProvComp' as never)}>
+          <Image
+            source={require('../../assets/secciones/ConsProveedorComp.jpg')}
+            style={styles.image}
+          />
+        </TouchableOpacity>
+        <Text> </Text>
+        <Text> </Text>
+        <Text> </Text>
       </View>
     </ScrollView>
   );
