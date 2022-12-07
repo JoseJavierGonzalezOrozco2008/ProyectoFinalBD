@@ -517,6 +517,33 @@ const Reportes = () => {
         />
       </TouchableOpacity>
       <Text> </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Reporte8' as never)}>
+        <Image
+          source={require('../../assets/secciones/reporte8.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Reporte9' as never)}>
+        <Image
+          source={require('../../assets/secciones/reporte9.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Reporte10' as never)}>
+        <Image
+          source={require('../../assets/secciones/reporte10.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
       <Text> </Text>
       <Text> </Text>
       <Text> </Text>
