@@ -153,6 +153,15 @@ const CompraInic = () => {
           autoCompleteType={undefined}
         />
 
+        <Text style={styles.insText}>Precio Unitario:</Text>
+        <Input
+          value={precio}
+          style={styles.input}
+          placeholder="Ingrese precio"
+          onChangeText={precioo => savePrecio(precioo)}
+          autoCompleteType={undefined}
+        />
+
         <TouchableOpacity style={styles.btn} onPress={() => validoYenvio()}>
           <Text style={styles.text}>Registrar Compra</Text>
         </TouchableOpacity>
@@ -201,9 +210,7 @@ const CompraInic = () => {
       idProv === '' ||
       idProd === '' ||
       idPersonal === '' ||
-      cantidad === '' ||
-      precio === '' ||
-      fecha === ''
+      cantidad === '' 
     ) {
       setIdProv('');
       setIdProd('');
@@ -225,20 +232,22 @@ const CompraInic = () => {
             id_Producto: idProdf,
             id_Personal: idPersonalf,
             Cantidad: cantidadf,
+            Precio_Unitario: preciof
 
           }),
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log(responseJson);
-            if (responseJson.ok === true) {
-              console.log('Validado');
-              navigation.navigate('Admin' as never);
-              setModalVisible2(true);
-            } else {
+            if (responseJson.ok === false) {
               msg = responseJson.msg
               setModalVisible4(true);
               navigation.navigate('Admin' as never);
+            } else {
+
+              console.log('Validado');
+              navigation.navigate('Admin' as never);
+              setModalVisible2(true);
             }
           })
           .catch(error => {

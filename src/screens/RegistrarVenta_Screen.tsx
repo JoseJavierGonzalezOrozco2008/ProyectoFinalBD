@@ -183,10 +183,7 @@ const VentaInic = () => {
     if (
       idCliente === '' ||
       idProd === '' ||
-      total === '' ||
-      cantidad === '' ||
-      total === '' ||
-      fecha === ''
+      cantidad === ''
     ) {
       setIdCliente('');
       setIdProd('');
@@ -212,7 +209,7 @@ const VentaInic = () => {
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log(responseJson);
-            if(responseJson.ok){
+            if(responseJson.ok === false){
               msg = responseJson.msg
               setModalVisible4(true)
               navigation.navigate('Personal' as never)
