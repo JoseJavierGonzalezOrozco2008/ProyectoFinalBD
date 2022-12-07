@@ -103,7 +103,7 @@ const ActualizarAlimentoAnimal_Screen = () => {
         <Modal animationType="slide" visible={modalVisible4}>
           <View style={styles.modal}>
             <Text style={styles.modalText}>
-              {msg}
+              Error al eliminar...
             </Text>
             <Image
               source={require('../../assets/cow2.jpg')}
@@ -207,7 +207,7 @@ const ActualizarAlimentoAnimal_Screen = () => {
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
-            if(responseJson.ok === false){
+            if(responseJson[0].affectedRows === 0){
               msg = responseJson.msg
               setModalVisible4(true)
             }else{

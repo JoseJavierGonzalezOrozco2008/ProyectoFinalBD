@@ -131,6 +131,7 @@ const ConsultarTipoAnimal_Screen = () => {
             console.log('Entré ', responseJson);
             if(responseJson.ok === false){
               msg = responseJson.msg
+              setModalVisible3(true)
             }else{
               console.log(responseJson.length);
               id = responseJson[0].id;

@@ -34,6 +34,8 @@ const ActualizarPersonal_Screen = () => {
   const [modalVisible1, setModalVisible1] = useState(false);
   const [modalVisible2, setModalVisible2] = useState(false);
   const [modalVisible3, setModalVisible3] = useState(false);
+  const [modalVisible4, setModalVisible4] = useState(false);
+
 
   const [idPersonal, setIdPersonal] = useState('');
   const [idPersonalf, setIdPersonalf] = useState(0);
@@ -107,6 +109,23 @@ const ActualizarPersonal_Screen = () => {
               resizeMode="contain"
               style={styles.Image}
             />
+          </View>
+        </Modal>
+        <Modal animationType="slide" visible={modalVisible4}>
+          <View style={styles.modal}>
+            <Text style={styles.modalText}>Error al actualizar</Text>
+            <Image
+              source={require('../../assets/pig.jpg')}
+              resizeMode="contain"
+              style={styles.Image}
+            />
+            <Button
+              title="Entendido"
+              onPress={() => {
+                setModalVisible4(false);
+              }}
+            />
+
           </View>
         </Modal>
         <Text style={styles.txtTitle}>Actualizar Personal</Text>
@@ -266,9 +285,14 @@ const ActualizarPersonal_Screen = () => {
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
-            console.log('Entré ', responseJson);
-            setModalVisible3(true)
-            navigation.navigate('Admin' as never)
+            if(responseJson[0].affectedRows === 0){
+              msg = responseJson.msg
+              setModalVisible4(true)
+            }else{
+              console.log('Entré ', responseJson);
+              setModalVisible3(true)
+              navigation.navigate('Admin' as never)
+            }
             
           })
           .catch(error => {

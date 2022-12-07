@@ -104,7 +104,7 @@ const ActualizarAlimentoVenta_Screen = () => {
         </Modal>
         <Modal animationType="slide" visible={modalVisible4}>
           <View style={styles.modal}>
-            <Text style={styles.modalText}>{msg}</Text>
+            <Text style={styles.modalText}>Error al actualizar...</Text>
             <Image
               source={require('../../assets/cow2.jpg')}
               resizeMode="contain"
@@ -211,7 +211,7 @@ const ActualizarAlimentoVenta_Screen = () => {
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
-            if(responseJson.ok === false){
+            if(responseJson[0].affectedRows === 0){
               msg = responseJson.msg
               setModalVisible4(true)
             }else{
