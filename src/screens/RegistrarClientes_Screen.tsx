@@ -17,7 +17,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 interface RoutesProps {}
 
 const Stack = createStackNavigator();
-const ip = '172.16.115.112:3000';
+import { ip } from '../config/ip';
 
 let id_direccion:number = 0;
 

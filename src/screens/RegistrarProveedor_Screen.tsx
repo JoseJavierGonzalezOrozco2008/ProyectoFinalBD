@@ -21,7 +21,7 @@ let id: String;
 
 let msg:string = ""
 
-const ip:string = "192.168.8.7"
+import { ip } from '../config/ip';
 const RegProv2 = () => {
 
   const navigation = useNavigation();

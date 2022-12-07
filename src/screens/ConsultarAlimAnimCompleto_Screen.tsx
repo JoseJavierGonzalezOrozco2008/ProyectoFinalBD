@@ -4,7 +4,7 @@ import { Row, Rows, Table } from 'react-native-table-component';
 import { useNavigation } from '@react-navigation/core';
 
 
-const ip = '192.168.8.6:3000';
+import { ip } from '../config/ip';
 
 function useDatos() {
     const [info, setInfo] = useState<any[]>([])

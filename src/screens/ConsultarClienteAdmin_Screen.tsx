@@ -18,7 +18,7 @@ interface RoutesProps {}
 
 const Stack = createStackNavigator();
 
-const ip = '192.168.8.7:3000';
+import { ip } from '../config/ip';
 
 let id: any;
 let idDireccion: any;

@@ -16,7 +16,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 let msg:string = "";
 const Stack = createStackNavigator();
-const ip = '192.168.8.6:3000';
+import { ip } from '../config/ip';
 
 
 const PersonalInic = () => {

@@ -6,8 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { getNamePer, getPuestoPer, Usuario } from '../screens/Personal_Screen';
 import { getNameAdm, getPuestoAdm } from '../screens/Admin_Screen';
 
-
-const ip = '192.168.8.7:3000';
+import { ip } from '../config/ip';
 
 let msg:string = ""
 let err:string = ""

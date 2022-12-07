@@ -18,7 +18,7 @@ interface RoutesProps {}
 
 const Stack = createStackNavigator();
 
-const ip = '172.16.115.112:3000';
+import { ip } from '../config/ip';
 
 
 const ElimMatPri_Screen = () => {

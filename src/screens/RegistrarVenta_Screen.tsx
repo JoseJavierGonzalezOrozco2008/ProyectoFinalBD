@@ -16,7 +16,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 
 const Stack = createStackNavigator();
-const ip = '192.168.8.6:3000';
+import { ip } from '../config/ip';
 let msg = "";
 
 const VentaInic = () => {
@@ -243,12 +243,12 @@ const VentaInic = () => {
           .then(responseJson => {
             console.log(responseJson);
             if(responseJson.ok){
-              setModalVisible2(true);
-              navigation.navigate('Personal' as never);
-            }else{
               msg = responseJson.msg
               setModalVisible4(true)
               navigation.navigate('Personal' as never)
+            }else{
+              setModalVisible2(true);
+              navigation.navigate('Personal' as never);
             }
 
           })

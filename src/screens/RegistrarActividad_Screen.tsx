@@ -18,7 +18,7 @@ interface RoutesProps {}
 
 const Stack = createStackNavigator();
 
-const ip = '192.168.8.6:3000';
+import { ip } from '../config/ip';
 
 const RegistrarActividad_Screen = () => {
   const navigation = useNavigation();
