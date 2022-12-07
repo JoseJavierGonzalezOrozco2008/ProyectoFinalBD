@@ -34,6 +34,9 @@ const ElimVenta_Screen = () => {
   const [idVenta, setIdVenta] = useState('');
   const [idVentaf, setIdVentaf] = useState(0);
 
+  const [idCliente, setIdCliente] = useState('')
+  const [idClientef, setIdClientef] = useState(0)
+
     return (
         <SafeAreaView style={styles.container}>
           <ScrollView style={styles.scroll}>
@@ -107,8 +110,16 @@ const ElimVenta_Screen = () => {
             <Input
               value={idVenta}
               style={styles.input}
-              placeholder="Ingrese el ID"
+              placeholder="Ingrese el ID de la venta"
               onChangeText={idd => saveID(idd)}
+              autoCompleteType={undefined}
+            />
+            <Text style={styles.insText}>Ingrese el ID del cliente:</Text>
+            <Input
+              value={idCliente}
+              style={styles.input}
+              placeholder="Ingrese el ID del cliente"
+              onChangeText={idd => saveID2(idd)}
               autoCompleteType={undefined}
             />
 
@@ -131,7 +142,7 @@ const ElimVenta_Screen = () => {
             setModalVisible1(true)
         }else{
             if(!isNaN(idVentaf) && idVentaf != 0){
-                fetch(`http://${ip}/tipoAnimales/delete-tipo_animal/` + idVentaf,{
+                fetch(`http://${ip}/ventas/delete-venta/` + idVentaf + `/` + idClientef,{
                     method: 'DELETE',
                   })
                   .then((respuesta) => respuesta.json())
@@ -162,6 +173,12 @@ const ElimVenta_Screen = () => {
         setIdVenta(idd);
         let n: number = parseInt(idd);
         setIdVentaf(n);
+    
+      }
+      function saveID2(idd: string) {
+        setIdCliente(idd);
+        let n: number = parseInt(idd);
+        setIdClientef(n);
     
       }
 };
