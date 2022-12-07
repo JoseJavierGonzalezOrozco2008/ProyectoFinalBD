@@ -118,7 +118,7 @@ const ActualizarAlimentoAnimal_Screen = () => {
             />
           </View>
         </Modal>
-        <Text style={styles.txtTitle}>Actualizar Alimento Animal</Text>
+        <Text style={styles.txtTitle}>Alimentar</Text>
         <Text style={styles.insText}>
           Ingrese el ID del alimento de animal a actualizar:
         </Text>
@@ -127,28 +127,6 @@ const ActualizarAlimentoAnimal_Screen = () => {
           style={styles.input}
           placeholder="Ingrese el ID"
           onChangeText={idd => saveID(idd)}
-          autoCompleteType={undefined}
-        />
-
-        <Text style={styles.insText}>
-          Ingrese el nombre del alimento de animal a actualizar:
-        </Text>
-        <Input
-          value={nombre}
-          style={styles.input}
-          placeholder="Ingrese el nombre"
-          onChangeText={nombree => saveNombre(nombree)}
-          autoCompleteType={undefined}
-        />
-
-        <Text style={styles.insText}>
-          Ingrese la descripción del alimento de animal a actualizar:
-        </Text>
-        <Input
-          value={descripcion}
-          style={styles.input}
-          placeholder="Ingrese Descripción"
-          onChangeText={descripcionn => saveDescripcion(descripcionn)}
           autoCompleteType={undefined}
         />
 
@@ -164,16 +142,6 @@ const ActualizarAlimentoAnimal_Screen = () => {
           autoCompleteType={undefined}
         />
 
-        <Text style={styles.insText}>
-          Ingrese el tipo de unidad del alimento de animal a actualizar:
-        </Text>
-        <Input
-          value={tipoUnidad}
-          style={styles.input}
-          placeholder="Ingrese el tipo de unidad"
-          onChangeText={unidadd => saveTipoUnidad(unidadd)}
-          autoCompleteType={undefined}
-        />
         <TouchableOpacity style={styles.btn} onPress={() => validoYenvio()}>
           <Text style={styles.text}>Actualizar</Text>
         </TouchableOpacity>
@@ -199,10 +167,8 @@ const ActualizarAlimentoAnimal_Screen = () => {
             'Content-type': 'application/json',
           },
           body: JSON.stringify({
-            Nombre: nombre,
-            Descripcion: descripcion,
-            Cantidad:catidadf,
-            TipoUnidad: tipoUnidad,
+            id: idAlimAnimf,
+            Cantidad: catidadf
           }),
         })
           .then(respuesta => respuesta.json())

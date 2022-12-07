@@ -153,24 +153,6 @@ const CompraInic = () => {
           autoCompleteType={undefined}
         />
 
-        <Text style={styles.insText}>Precio:</Text>
-        <Input
-          value={precio}
-          style={styles.input}
-          placeholder="Ingrese el precio"
-          onChangeText={estatuss => savePrecio(estatuss)}
-          autoCompleteType={undefined}
-        />
-
-        <Text style={styles.insText}>Fecha:</Text>
-        <Input
-          value={fecha}
-          style={styles.input}
-          placeholder="YYYY-MM-DD"
-          onChangeText={fechaa => saveFecha(fechaa)}
-          autoCompleteType={undefined}
-        />
-
         <TouchableOpacity style={styles.btn} onPress={() => validoYenvio()}>
           <Text style={styles.text}>Registrar Compra</Text>
         </TouchableOpacity>
@@ -231,7 +213,7 @@ const CompraInic = () => {
       setFecha('');
       setModalVisible1(true);
     } else {
-      if (!isNaN(idProvf) && !isNaN(idProdf) && !isNaN(idPersonalf) && !isNaN(cantidadf) && !isNaN(preciof)) {
+      if (!isNaN(idProvf) && !isNaN(idProdf) && !isNaN(idPersonalf) && !isNaN(cantidadf)) {
         fetch(`http://${ip}/compras/create-compra`, {
           method: 'POST',
           headers: {
@@ -243,14 +225,13 @@ const CompraInic = () => {
             id_Producto: idProdf,
             id_Personal: idPersonalf,
             Cantidad: cantidadf,
-            Precio_Unitario: preciof,
-            Fecha: fecha,
+
           }),
         })
           .then(respuesta => respuesta.json())
           .then(responseJson => {
             console.log(responseJson);
-            if (responseJson.ok) {
+            if (responseJson.ok === true) {
               console.log('Validado');
               navigation.navigate('Admin' as never);
               setModalVisible2(true);

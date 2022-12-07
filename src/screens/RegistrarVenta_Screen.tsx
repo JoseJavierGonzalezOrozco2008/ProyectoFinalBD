@@ -136,33 +136,6 @@ const VentaInic = () => {
           autoCompleteType={undefined}
         />
 
-        <Text style={styles.insText}>Precio:</Text>
-        <Input
-          value={precio}
-          style={styles.input}
-          placeholder="Ingrese el precio"
-          onChangeText={precioo => savePrecio(precioo)}
-          autoCompleteType={undefined}
-        />
-
-        <Text style={styles.insText}>Total:</Text>
-        <Input
-          value={total}
-          style={styles.input}
-          placeholder="Ingrese el total"
-          onChangeText={totall => saveTotal(totall)}
-          autoCompleteType={undefined}
-        />
-
-        <Text style={styles.insText}>Fecha:</Text>
-        <Input
-          value={fecha}
-          style={styles.input}
-          placeholder="YYYY-MM-DD"
-          onChangeText={fechaa => saveFecha(fechaa)}
-          autoCompleteType={undefined}
-        />
-
         <TouchableOpacity style={styles.btn} onPress={() => validoYenvio()}>
           <Text style={styles.text}>Registrar Venta</Text>
         </TouchableOpacity>
@@ -223,7 +196,7 @@ const VentaInic = () => {
       setFecha('');
       setModalVisible1(true);
     } else {
-      if (!isNaN(idClientef) && !isNaN(idProdf) && !isNaN(totalf) && !isNaN(cantidadf) && !isNaN(preciof)) {
+      if (!isNaN(idClientef) && !isNaN(idProdf) && !isNaN(totalf) && !isNaN(cantidadf)) {
         fetch(`http://${ip}/ventas/create-venta`, {
           method: 'POST',
           headers: {
@@ -234,9 +207,6 @@ const VentaInic = () => {
             id_Cliente: idClientef,
             id_Producto: idProdf,
             Cantidad: cantidadf,
-            Precio: preciof,
-            Total: totalf,
-            Fecha: fecha,
           }),
         })
           .then(respuesta => respuesta.json())
