@@ -553,6 +553,15 @@ const Reportes = () => {
         />
       </TouchableOpacity>
       <Text> </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Reporte12' as never)}>
+        <Image
+          source={require('../../assets/secciones/reporte12.jpg')}
+          style={styles.image}
+        />
+      </TouchableOpacity>
+      <Text> </Text>
       <Text> </Text>
       <Text> </Text>
       <Text> </Text>

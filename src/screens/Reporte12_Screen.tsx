@@ -10,7 +10,7 @@ function useDatos() {
     const [info, setInfo] = useState<any[]>([])
    
     useEffect(() => {
-      fetch(`http://${ip}/login/query11`)
+      fetch(`http://${ip}/login/query12`)
         .then(response => response.json())
         .then(datos => {
           console.log(datos)
@@ -23,23 +23,23 @@ function useDatos() {
 
 
 
-const ConsultarReporte11 = () => {
+const ConsultarReporte12 = () => {
 
     const navigation = useNavigation();
     const datos = useDatos()
-    const header = ['ID Cliente','Punto de Venta','Municipio']
+    const header = ['ID Proveedor','Nombre','Fecha de Compra']
     console.log(datos)
     return (
    
         <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scroll}>
           <Text style={styles.txtTitle}>
-            Puntos de Venta
+            Historial Proveedores
           </Text>
           <Table borderStyle={{borderWidth: 1, borderColor: 'black', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
             <Row data={header} style={{height: 90, backgroundColor: 'gray'}} textStyle={{color: 'white',textAlign: 'center'}}/> 
             {datos.map(item =>(
-                <Row key={item.id} data={[item.id,item.PuntoVenta,item.Municipio]} style={{height: 90, backgroundColor: 'white'}} textStyle={{color: 'black',textAlign: 'center'}} /> 
+                <Row key={item.id} data={[item.Vendedor,item.Nombre,item.FechaCompra]} style={{height: 90, backgroundColor: 'white'}} textStyle={{color: 'black',textAlign: 'center'}} /> 
             ))}
     
           
@@ -142,4 +142,4 @@ const styles = StyleSheet.create({
   });
   
   
-export default ConsultarReporte11
+export default ConsultarReporte12

@@ -34,12 +34,12 @@ const ConsultarReporte6 = () => {
         <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scroll}>
           <Text style={styles.txtTitle}>
-            Precio Menor
+            Ventas Generales
           </Text>
           <Table borderStyle={{borderWidth: 1, borderColor: 'black', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>
             <Row data={header} style={{height: 90, backgroundColor: 'gray'}} textStyle={{color: 'white',textAlign: 'center'}}/> 
             {datos.map(item =>(
-                <Row key={item.Fecha} data={[item.id_Producto,item.Nombre,item.Cantidad, item.Pago_Total,item.Fecha]} style={{height: 90, backgroundColor: 'white'}} textStyle={{color: 'black',textAlign: 'center'}} /> 
+                <Row key={item.id_Venta} data={[item.id_Producto,item.Nombre,item.Cantidad, item.Pago_Total,item.Fecha]} style={{height: 90, backgroundColor: 'white'}} textStyle={{color: 'black',textAlign: 'center'}} /> 
             ))}
           
           </Table> 
