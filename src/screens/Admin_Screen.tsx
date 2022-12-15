@@ -598,19 +598,19 @@ const Clima = () => {
         />
         <Text> </Text> 
         <Text> </Text>
-        <Text >Temperatura en grados Celsius: {datos.temp_c}</Text>
+        <Text style={styles.weatherText}>Temperatura en grados Celsius: {datos.temp_c}°C</Text>
         <Text> </Text> 
         <Text> </Text>
-        <Text >Procentaje de Húmedad: {datos.humid_pct}%</Text>
+        <Text style={styles.weatherText}>Procentaje de Húmedad: {datos.humid_pct}%</Text>
         <Text> </Text> 
         <Text> </Text>
-        <Text >Procentaje de Nubosidad: {datos.cloudtotal_pct}%</Text>
+        <Text style={styles.weatherText}>Procentaje de Nubosidad: {datos.cloudtotal_pct}%</Text>
         <Text> </Text> 
         <Text> </Text>
-        <Text >Vientos de  {datos.vis_km} km</Text>
+        <Text style={styles.weatherText}>Vientos de  {datos.vis_km} km</Text>
         <Text> </Text>
         <Text> </Text>
-        <Text >Estado Climático General: {datos.wx_desc}</Text>
+        <Text style={styles.weatherText}>Estado Climático General: {datos.wx_desc}</Text>
 
       </View>
     </ScrollView>
@@ -791,6 +791,10 @@ const styles = StyleSheet.create({
   },
   scroll: {
     paddingTop: 40,
+  },
+  weatherText: {
+    fontSize: 20,
+    color: 'black'
   },
 });
 
